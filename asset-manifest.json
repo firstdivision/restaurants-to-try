@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/restaurants-to-try/static/js/main.d1c7deb1.js",
+    "main.js": "/restaurants-to-try/static/js/main.b5660a18.js",
     "index.html": "/restaurants-to-try/index.html",
-    "main.d1c7deb1.js.map": "/restaurants-to-try/static/js/main.d1c7deb1.js.map"
+    "main.b5660a18.js.map": "/restaurants-to-try/static/js/main.b5660a18.js.map"
   },
   "entrypoints": [
-    "static/js/main.d1c7deb1.js"
+    "static/js/main.b5660a18.js"
   ]
 }
