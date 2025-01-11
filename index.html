@@ -22,30 +22,33 @@
 
 
         <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
+            //Austin
+            //30.2672° N, 97.7431° W
+
+            var map = L.map('map').setView([30.265175, -97.743821], 13);
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            var marker = L.marker([51.5, -0.09]).addTo(map);
-            marker.bindPopup("<b>Hello world!</b><br>I am a popup.");//.openPopup();
+            var marker = L.marker([30.3041725, -97.7267211]).addTo(map);
+            marker.bindPopup("<b><a href='https://hpbng.com/'>Hyde Park Bar and Grill</a></b>");//.openPopup();
 
             // var popup = L.popup()
             //     .setLatLng([51.513, -0.09])
             //     .setContent("I am a standalone popup.")
             //     .openOn(map); 
 
-            var popup = L.popup();
+            // var popup = L.popup();
 
-            function onMapClick(e) {
-                popup
-                    .setLatLng(e.latlng)
-                    .setContent("You clicked the map at " + e.latlng.toString())
-                    .openOn(map);
-            }
+            // function onMapClick(e) {
+            //     popup
+            //         .setLatLng(e.latlng)
+            //         .setContent("You clicked the map at " + e.latlng.toString())
+            //         .openOn(map);
+            // }
 
-            map.on('click', onMapClick);
+            // map.on('click', onMapClick);
         </script>
     </body>
 </html>
