@@ -28,7 +28,7 @@ export default function App() {
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Material UI Create React App example in TypeScripts
+          Restaurants to Try
         </Typography>
         <ProTip />
         <Copyright />
