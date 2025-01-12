@@ -34,9 +34,6 @@ export default function Map() {
         }
     });
 
-    
-    console.log(cuisinesWithCount);
-
     cuisinesWithCount.sort((a, b) => a.name > b.name ? 1 : -1)
 
     let cuisineMenuItems = cuisinesWithCount
