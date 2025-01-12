@@ -41,5 +41,12 @@
         "blurb": "The food we are serving is not exactly traditional Japanese restaurant food, but authentic home-style Japanese cooking – the food we eat every day, and has many influences from other culture and cuisines. It’s special because it has some of our family history, with our family recipes and reflecting our backgrounds from Japan, New Orleans, and Austin and also traveling throughout Asia. It’s probably more accurate to call our food “Asazu cuisine”! (our last name)",
         "lat": 30.314087,
         "lon": -97.7170429
+    },
+    {
+        "name": "Veracruz All Natural",
+        "url": "https://veracruzallnatural.com/",
+        "blurb": "From an early age, Reyna and Maritza wanted to own their own restaurant. They grew up helping their mother in the family kitchen in Veracruz, Mexico. Starting at very young ages, Reyna and Maritza’s mother and grandmother taught them the ins and outs of the kitchen, and they have loved to cook ever since. They learned to be creative with their cooking while at the same time respecting the heritage of authentic ingredients and the culture they represent. They also learned the value of using both fresh and organic ingredients in their cooking.",
+        "lat": 30.4804443, 
+        "lon": -97.6847878
     }
 ]
