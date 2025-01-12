@@ -33,8 +33,8 @@ export default function App() {
 
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Restaurants to Try!!!
+        <Typography variant="h6" component="h6" sx={{ mb: 2 }}>
+          Restaurants to Try
         </Typography>
         <div className="App">
           <Map />

@@ -4,7 +4,8 @@
         "URL": "https://hpbng.com/",
         "Blurb": "Since 1982, Hyde Park Bar & Grill has offered delicious high-quality food at a moderate price. We use the freshest quality ingredients, cooked from scratch and sourced locally whenever possible, in an inclusive menu. Our goal is to be where you eat when you dine away from home.",
         "Lat": 30.3041725,
-        "Lon": -97.7267211
+        "Lon": -97.7267211,
+        "position": [30.3041725, -97.7267211]
     },
     {
         "Name": "Bureau de Poste",
@@ -12,5 +13,26 @@
         "Blurb": "Bureau de Poste is a neighborhood French bistro offering Parisian classics with a modern twist.",
         "Lat": 30.3068480,
         "Lon": -97.7300679
+    },
+    {
+        "Name": "Peche",
+        "URL": "http://www.pecheaustin.com/",
+        "Blurb": "Meaning sin in French, Péché is distinctly Austin's first absinthe bar, a cocktail program headed by bar manager Derek Weiss, showcasing a selection of pre-Prohibition style cocktails and a curated wine list. Executive chef John Lichtenberger brings that same tailored focus to the food menu, providing rich French fare made with the freshest ingredients.",
+        "Lat": 30.266966,
+        "Lon": -97.745155
+    },
+    {
+        "Name": "Fukumoto",
+        "URL": "https://www.fukumotoaustin.com/",
+        "Blurb": "Fukumoto is an izakaya, a Japanese restaurant specializing in yakitori (skewers grilled over Japanese charcoal), sushi/sashimi, and classic Japanese comfort food.",
+        "Lat": 30.2646261, 
+        "Lon": -97.7317272
+    },
+    {
+        "name": "Ghama Korean Food",
+        "URL": "https://ghamakf.com/",
+        "Blurb": "Ghama Zone Korean Food",
+        "Lat": 30.509062,
+        "Lon": -97.6805534
     }
 ]
