@@ -6,27 +6,48 @@ import restaurants from './data/restaurants.json'
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+class ItemWithCount {
+    name:string;
+    count:number;
+
+    constructor(name:string, count:number) { 
+        this.name = name; 
+        this.count = count
+     }  
+}
+
 export default function Map() {
-    console.log("function Map()...")
     const [selectedCuisine, setCuisine] = React.useState('All');
 
+    //alphabetize the list of restaurants
+    let sortedRestaurants = restaurants.sort((a, b) => a.name > b.name ? 1 : -1)
     //get a list of distinct cuisines
-    const cuisines = [] as string[];
+    const cuisinesWithCount = [] as ItemWithCount[];
 
-    restaurants.map(restaurant => {
-        if (cuisines.indexOf(restaurant.cuisine) === -1) {
-            cuisines.push(restaurant.cuisine)
+    sortedRestaurants.map(restaurant => {
+        let found = cuisinesWithCount.find(e => e.name === restaurant.cuisine);
+
+        if (!found) {
+            cuisinesWithCount.push(new ItemWithCount(restaurant.cuisine, 1));
+        } else {
+            found.count++;
         }
     });
 
-    let cuisineMenuItems = cuisines.map(function(cuisine) {
-        return <MenuItem value={cuisine} key={cuisine}>{cuisine}</MenuItem>
+    
+    console.log(cuisinesWithCount);
+
+    cuisinesWithCount.sort((a, b) => a.name > b.name ? 1 : -1)
+
+    let cuisineMenuItems = cuisinesWithCount
+        .map(function(cuisine) {
+        return <MenuItem value={cuisine.name} key={cuisine.name}>{cuisine.name} ({cuisine.count}) </MenuItem>
     });
 
     //add the "All" item at the front
     cuisineMenuItems.unshift(<MenuItem value="All" key="All">All</MenuItem>);
 
-    let selectedRestaurants = restaurants
+    let selectedRestaurants = sortedRestaurants
     if (selectedCuisine !== "All")
     {
         selectedRestaurants = selectedRestaurants.filter((restaurant) => restaurant.cuisine === selectedCuisine);

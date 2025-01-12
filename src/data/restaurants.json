@@ -82,10 +82,10 @@
     {
         "name": "Bartlett's",
         "url": "https://bartlettsaustin.com/",
-        "blurb": "We believe in the nobility of service and in the dignified pleasures of dining well. We believe that for our restaurant to live up to its name, it must be restorative.We source top-quality meats, seafood, vegetables, and cheeses. We hand-cut fish and steaks, freshly grind chuck for burgers, and make our soups, buttermilk ciabatta, mustard, and two-week pickle relish from scratch. And we obsess over the details of getting it right every time.",
+        "blurb": "We believe in the nobility of service and in the dignified pleasures of dining well. We believe that for our restaurant to live up to its name, it must be restorative. We source top-quality meats, seafood, vegetables, and cheeses. We hand-cut fish and steaks, freshly grind chuck for burgers, and make our soups, buttermilk ciabatta, mustard, and two-week pickle relish from scratch. And we obsess over the details of getting it right every time.",
         "lat": 30.3567168,
         "lon": -97.7361198,
-        "cuisine": "Unknown"
+        "cuisine": "Americana"
     },
     {
         "name": "Sour Duck Market",
@@ -93,7 +93,7 @@
         "blurb": "Offering handcrafted fresh baked goods, sandwiches, and snacks made from locally sourced ingredients, sustainable coffee, craft cocktails, and a killer selection of beer and wine.",
         "lat": 30.2798806,
         "lon": -97.7241564,
-        "cuisine": "Unknown"
+        "cuisine": "Americana"
     },
     {
         "name": "Bufalina",
@@ -101,7 +101,7 @@
         "blurb": "We serve Neapolitan pizza. Pizzas are roughly 12 in diameter and are cooked in our Stefano Ferrara wood-burning oven, which runs north of 900 degrees, for roughly 90 seconds. Pizzas emerge properly charred and slightly wet in the middle, a Neapolitan hallmark.",
         "lat": 30.3410838,
         "lon": -97.8145783,
-        "cuisine": "Unknown"
+        "cuisine": "Pizza"
     },
     {
         "name": "Super Thai Cuisine",
@@ -109,12 +109,12 @@
         "blurb": "Our locally owned and operated restaurant masters the flavors of contemporary cuisine to serve the best Thai food in Austin! We offer a variety of popular and authentic Thai dishes, with sauces and food prepared fresh, in-house. Our goal is to give you a first-class Asian experience by serving Thai food that is all made with high-quality, fresh meat and organic vegetables.",
         "lat": 30.2492442,
         "lon": -97.7733213,
-        "cuisine": "Unknown"
+        "cuisine": "Thai"
     },
     {
         "name": "Casa de Luz",
         "url": "https://www.casadeluz.org/",
-        "blurb": "Vegan I think?  No actual menu, you just have to show up and see what they’re making I guess.",
+        "blurb": "Vegan I think?  No actual menu, you just have to show up and see what they're making I guess.",
         "lat": 30.2641631,
         "lon": -97.7642875,
         "cuisine": "Unknown"
@@ -125,15 +125,15 @@
         "blurb": "Our kitchen is driven wholly by handmade and locally-sourced ingredients. Our chefs do all of our own butchering and use every part of the animal. We make stocks, charcuterie, fresh pasta, breads, desserts and cheese in house. Our wines are specifically chosen to compliment our food. Essentially French and Italian, the wines on our list are primarily from boutique, family owned and small production producers.",
         "lat": 30.2474255,
         "lon": -97.7532846,
-        "cuisine": "Unknown"
+        "cuisine": "Italian"
     },
     {
         "name": "Armadillo Den",
         "url": "https://www.armadillodenaustin.com/",
-        "blurb": "Our parking sucks but we're tryin' - take a rideshare and we'll take 10% off your table! Three Acres of South Austin Awesome. Kids welcome ‘til 6pm, M-F. Well-behaved Dogs Welcome Always. 5 of Austin’s Finest Food Trucks. 13 Foot LED TV Wall. Craft Beer & Cocktails on Tap. Live Music Every Night",
+        "blurb": "Our parking sucks but we're tryin' - take a rideshare and we'll take 10% off your table! Three Acres of South Austin Awesome. Kids welcome 'til 6pm, M-F. Well-behaved Dogs Welcome Always. 5 of Austin's Finest Food Trucks. 13 Foot LED TV Wall. Craft Beer & Cocktails on Tap. Live Music Every Night",
         "lat": 30.1703303,
         "lon": -97.8309795,
-        "cuisine": "Unknown"
+        "cuisine": "Various"
     },
     {
         "name": "Athens Cafe",
@@ -141,7 +141,7 @@
         "blurb": "Welcome to Athens Cafe! Explore our menu and enjoy fresh homemade Greek dishes like Moussaka, Souvlaki, Spanakopita, Greek Salad, and more!",
         "lat": 30.4378322,
         "lon": -97.7005553,
-        "cuisine": "Unknown"
+        "cuisine": "Greek"
     },
     {
         "name": "Eldorado Cafe",
@@ -149,7 +149,7 @@
         "blurb": "Eldorado Cafe serves hearty, Mexican-inspired comfort food that is meant to remind you of coming home.",
         "lat": 30.3622236,
         "lon": -97.747207,
-        "cuisine": "Unknown"
+        "cuisine": "Mexican"
     },
     {
         "name": "Matt's El Rancho",
@@ -157,7 +157,7 @@
         "blurb": "Today the South Lamar restaurant seats more than 500. El Rancho still makes everything from scratch. Our in house tortilla factory grinds Non-GMO corn daily to make the freshest corn tortillas and chips you can find. Our Famous Margarita's are made with fresh-squeezed lime juice.",
         "lat": 30.245118,
         "lon": -97.7818559,
-        "cuisine": "Unknown"
+        "cuisine": "Mexican"
     },
     {
         "name": "Suerte",
@@ -165,7 +165,7 @@
         "blurb": "Located in the heart of East Austin, Suerte is an award-winning restaurant driven by a passion for masa,  an ingredient at the heart of Mexican cooking. Chef Fermin and his team curate a seasonally driven menu with an emphasis on bringing together traditional Mexican cooking techniques with local Texas ingredients to create a unique and exciting dining experience",
         "lat": 30.2622778,
         "lon": -97.7258507,
-        "cuisine": "Unknown"
+        "cuisine": "Mexican"
     },
     {
         "name": "Fabrik Austin",
@@ -173,7 +173,7 @@
         "blurb": "With sustainability as a priority in our approach, we source produce and ingredients from local growers and provisioners wherever possible, and many of our garnishes and greens are sourced from our own hydroponic gardens and foraged finds. We aim to utilize as much of each ingredient as possible to reduce waste, and compost anything remaining.",
         "lat": 30.279341,
         "lon": -97.7255944,
-        "cuisine": "Unknown"
+        "cuisine": "Fine Dining"
     },
     {
         "name": "Eat — Black Star | Austin Brew Pub",
@@ -181,7 +181,7 @@
         "blurb": "Black Star took root from an idea that looked beyond the path of conventional wisdom. A pub and brewery - owned by the community, for the community.",
         "lat": 30.3382802,
         "lon": -97.7216016,
-        "cuisine": "Unknown"
+        "cuisine": "Brewpub"
     },
     {
         "name": "1618 Asian Fusion",
@@ -189,7 +189,7 @@
         "blurb": "1618 Asian Fusion is a first-of-its-kind locally owned and operated family restaurant created with an exciting vision by Kevin Le and Lynn Tran. We delight in providing a culinary exploration of Asia's bright, bold, and diverse flavor landscape. 1618's menu spans the continent - offering diners a taste of Vietnamese, Thai, Chinese, Singaporean, and Southeast Asian food in our own fusion style.",
         "lat": 30.2454026,
         "lon": -97.733044,
-        "cuisine": "Unknown"
+        "cuisine": "Asian"
     },
     {
         "name": "The Cheesecake Experience",
@@ -197,7 +197,7 @@
         "blurb": "Operating as a mobile food trailer, we provide bite sized artisan cheesecakes",
         "lat": 30.1853565,
         "lon": -97.7946158,
-        "cuisine": "Unknown"
+        "cuisine": "Dessert"
     },
     {
         "name": "DAI DUE",
@@ -213,7 +213,7 @@
         "blurb": "...popup kitchen / food truck?",
         "lat": 30.2287501,
         "lon": -97.7613429,
-        "cuisine": "Unknown"
+        "cuisine": "Mexican"
     },
     {
         "name": "Soupleaf Hot Pot",
@@ -221,7 +221,7 @@
         "blurb": "Welcome to our cozy corner of Austin, where we proudly embody the essence of a true mom-and-pop establishment. Hot pot, a 2,000-year-old tradition from Asia, serves as a beautiful way to gather friends, family, and loved ones to celebrate a bountiful harvest over a roaring soup. We're dedicated to serving you with genuine care and fresh flavors every day. Owned and operated by Jin and her devoted sons, Nelson and Nick, we take pride in serving our community with dishes made from scratch using the freshest ingredients available.",
         "lat": 30.3372636,
         "lon": -97.7195015,
-        "cuisine": "Unknown"
+        "cuisine": "Asian"
     },
     {
         "name": "the Perfect Bite",
@@ -229,7 +229,7 @@
         "blurb": "Burgers and stuff",
         "lat": 30.1674478,
         "lon": -97.8304256,
-        "cuisine": "Unknown"
+        "cuisine": "Burgers"
     },
     {
         "name": "Loro",
@@ -237,15 +237,15 @@
         "blurb": "Loro is an Asian smokehouse and bar originally created by the award-winning chefs behind Uchi and Franklin Barbecue. Together, they merged their love of Asian cuisine and Texas barbecue to offer innovative dishes you won’t find anywhere else. So come on by, kick back, and stay awhile.",
         "lat": 30.2477396,
         "lon": -97.7739251,
-        "cuisine": "Unknown"
+        "cuisine": "Asian"
     },
     {
         "name": "Little Deli & Pizzeria",
         "url": "https://littledeliandpizza.com/",
-        "blurb": "Located in the heart of Austin, the Little Deli has been a staple for over two decades; we are the original Deli and Pizzeria, and we believe that we’re the best. Why? We use the best ingredients, proven methods, and put our heart and soul into every sandwich and slice! All you have to do is call us and we’ll get right to work!",
+        "blurb": "Located in the heart of Austin, the Little Deli has been a staple for over two decades; we are the original Deli and Pizzeria, and we believe that we're the best. Why? We use the best ingredients, proven methods, and put our heart and soul into every sandwich and slice! All you have to do is call us and we'll get right to work!",
         "lat": 30.342527,
         "lon": -97.7257922,
-        "cuisine": "Unknown"
+        "cuisine": "Italian"
     },
     {
         "name": "Redbud Icehouse",
@@ -253,7 +253,7 @@
         "blurb": "Burgers, beer",
         "lat": 30.2882745,
         "lon": -97.7059248,
-        "cuisine": "Unknown"
+        "cuisine": "Burgers"
     },
     {
         "name": "Hasta La Luna Tacos",
@@ -261,6 +261,6 @@
         "blurb": "We operate in a HIDDEN ghost/prep kitchen, but this is a HIDDEN gem! Please call if you get lost we understand it can be confusing, But after you taste our delicious food you will no longer need a GPS to find us",
         "lat": 30.1747602,
         "lon": -97.7995164,
-        "cuisine": "Unknown"
+        "cuisine": "Mexican"
     }
 ]
