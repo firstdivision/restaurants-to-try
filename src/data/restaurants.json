@@ -83,5 +83,12 @@
         "blub": "Offering handcrafted fresh baked goods, sandwiches, and snacks made from locally sourced ingredients, sustainable coffee, craft cocktails, and a killer selection of beer and wine.",
         "lat": 30.2798806,
         "lon": -97.7241564
+    },
+    {
+        "name": "Bufalina",
+        "url": "https://www.bufalinapizza.com/",
+        "blurb": "We serve Neapolitan pizza. Pizzas are roughly 12 in diameter and are cooked in our Stefano Ferrara wood-burning oven, which runs north of 900 degrees, for roughly 90 seconds. Pizzas emerge properly charred and slightly wet in the middle, a Neapolitan hallmark.",
+        "lat": 30.3410838,
+        "Lon": -97.8145783
     }
 ]
