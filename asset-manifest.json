@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/restaurants-to-try/static/css/main.2e662a65.css",
-    "main.js": "/restaurants-to-try/static/js/main.440ac8c5.js",
+    "main.css": "/restaurants-to-try/static/css/main.780a575c.css",
+    "main.js": "/restaurants-to-try/static/js/main.1f5b2cf4.js",
     "index.html": "/restaurants-to-try/index.html",
-    "main.2e662a65.css.map": "/restaurants-to-try/static/css/main.2e662a65.css.map",
-    "main.440ac8c5.js.map": "/restaurants-to-try/static/js/main.440ac8c5.js.map"
+    "main.780a575c.css.map": "/restaurants-to-try/static/css/main.780a575c.css.map",
+    "main.1f5b2cf4.js.map": "/restaurants-to-try/static/js/main.1f5b2cf4.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e662a65.css",
-    "static/js/main.440ac8c5.js"
+    "static/css/main.780a575c.css",
+    "static/js/main.1f5b2cf4.js"
   ]
 }
