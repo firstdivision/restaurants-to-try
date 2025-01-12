@@ -270,5 +270,13 @@
         "lat": 30.3245173,
         "lon": -97.743741,
         "cuisine": "French"
+    },
+    {
+        "name": "Carmelas",
+        "url": "https://www.carmelasdrippingsprings.com/",
+        "blurb": "Carmela's is a family owned authentic Italian restaurant. Ours is a traditional age old cuisine passed down over generations. ",
+        "lat": 30.2863776,
+        "lon": -98.0662721,
+        "cuisine": "Italian"
     }
 ]
