@@ -13,6 +13,10 @@ export default function ListView() {
             <Typography variant="h6" component="h6" sx={{ mb: 2 }}>
                 <a href={ restaurant.url } target="_blank">{ restaurant.name }</a>
             </Typography>
+
+            <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
+                Cuisine: {restaurant.cuisine}
+            </Typography>
             
             <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
                 {restaurant.blurb}
