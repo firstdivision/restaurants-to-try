@@ -55,5 +55,33 @@
         "blurb": "La Popular creates an unbeatable vibe for guests with its elevated, high-quality take on traditional dishes, inventive craft cocktails and an extensive selection of artisan spirits, 80+ tequilas and mezcals, chic modern interiors, covet-worthy playlists, and genuine welcoming services that embodies traditional Mexican hospitality.",
         "lat": 30.2552402,
         "lon": -97.8699449
+    },
+    {
+        "name": "Intero",
+        "url": "https://www.interorestaurant.com/",
+        "blurb": "Just as in Italy where the food is genuine and locally sourced, you'll find the same at Intero with truly farm-to-table Italian cuisine.",
+        "lat": 30.2537,
+        "lon": -97.7170049
+    },
+    {
+        "name": "Hopfields",
+        "url": "https://www.hopfieldsaustin.com/",
+        "blurb": "French Gastropub",
+        "lat": 30.2985231,
+        "lon": -97.7435397
+    },
+    {
+        "name": "Bartlett's",
+        "url": "https://bartlettsaustin.com/",
+        "blurb": "We believe in the nobility of service and in the dignified pleasures of dining well. We believe that for our restaurant to live up to its name, it must be restorative.We source top-quality meats, seafood, vegetables, and cheeses. We hand-cut fish and steaks, freshly grind chuck for burgers, and make our soups, buttermilk ciabatta, mustard, and two-week pickle relish from scratch. And we obsess over the details of getting it right every time.",
+        "lat": 30.3567168,
+        "lon": -97.7361198
+    },
+    {
+        "name": "Sour Duck Market",
+        "url": "https://www.sourduckmarket.com/",
+        "blub": "Offering handcrafted fresh baked goods, sandwiches, and snacks made from locally sourced ingredients, sustainable coffee, craft cocktails, and a killer selection of beer and wine.",
+        "lat": 30.2798806,
+        "lon": -97.7241564
     }
 ]
