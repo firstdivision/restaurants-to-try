@@ -48,5 +48,12 @@
         "blurb": "From an early age, Reyna and Maritza wanted to own their own restaurant. They grew up helping their mother in the family kitchen in Veracruz, Mexico. Starting at very young ages, Reyna and Maritza’s mother and grandmother taught them the ins and outs of the kitchen, and they have loved to cook ever since. They learned to be creative with their cooking while at the same time respecting the heritage of authentic ingredients and the culture they represent. They also learned the value of using both fresh and organic ingredients in their cooking.",
         "lat": 30.4804443, 
         "lon": -97.6847878
+    },
+    {
+        "name": "La Popular Austin",
+        "url": "https://www.lapopularcdmx.com/locations/austin",
+        "blurb": "La Popular creates an unbeatable vibe for guests with its elevated, high-quality take on traditional dishes, inventive craft cocktails and an extensive selection of artisan spirits, 80+ tequilas and mezcals, chic modern interiors, covet-worthy playlists, and genuine welcoming services that embodies traditional Mexican hospitality.",
+        "lat": 30.2552402,
+        "lon": -97.8699449
     }
 ]
