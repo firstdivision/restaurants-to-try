@@ -24,8 +24,8 @@ class NavItem {
 
 
 const pages: NavItem[] = [
-    new NavItem("Map", "/"),
-    new NavItem("List", "/list"),
+    new NavItem("Map", "/restaurants-to-try"),
+    new NavItem("List", "/restaurants-to-try/list"),
 ];
 
 function ResponsiveAppBar() {
