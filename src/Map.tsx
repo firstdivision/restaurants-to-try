@@ -5,9 +5,6 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import restaurants from './data/restaurants.json'
 
 export default function Map() {
-
-    console.log(restaurants);
-
     let markers = restaurants.map(function(restaurant) {
         return <Marker position={[restaurant.Lat, restaurant.Lon]}>
                 <Popup>
