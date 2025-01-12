@@ -75,7 +75,7 @@ function ResponsiveAppBar() {
                     key={page.route} 
                 >
                   <Typography sx={{ textAlign: 'center' }}>
-                    <Link key={page.route} href={page.route}>{page.text}</Link>
+                    <Link key={page.route} href={page.route}  style={{ textDecoration: 'none' }}>{page.text}</Link>
                   </Typography>
                 </MenuItem>
               ))}
