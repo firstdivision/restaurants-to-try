@@ -89,6 +89,97 @@
         "url": "https://www.bufalinapizza.com/",
         "blurb": "We serve Neapolitan pizza. Pizzas are roughly 12 in diameter and are cooked in our Stefano Ferrara wood-burning oven, which runs north of 900 degrees, for roughly 90 seconds. Pizzas emerge properly charred and slightly wet in the middle, a Neapolitan hallmark.",
         "lat": 30.3410838,
-        "Lon": -97.8145783
+        "lon": -97.8145783
+    },
+    {
+        "name": "Super Thai Cuisine",
+        "url": "https://www.superthaicuisine.com/",
+        "blurb": "Our locally owned and operated restaurant masters the flavors of contemporary cuisine to serve the best Thai food in Austin! We offer a variety of popular and authentic Thai dishes, with sauces and food prepared fresh, in-house. Our goal is to give you a first-class Asian experience by serving Thai food that is all made with high-quality, fresh meat and organic vegetables.",
+        "lat": 30.2492442,
+        "lon": -97.7733213
+    },
+    {
+        "name": "Casa de Luz",
+        "url": "https://www.casadeluz.org/",
+        "blub": "Vegan I think?  No actual menu, you just have to show up and see what they’re making I guess.",
+        "lat": 30.2641631,
+        "lon": -97.7642875
+    },
+    {
+        "name": "Vespaio Ristorante",
+        "url": "https://www.vespaioristorante.com/",
+        "blub": "Our kitchen is driven wholly by handmade and locally-sourced ingredients. Our chefs do all of our own butchering and use every part of the animal. We make stocks, charcuterie, fresh pasta, breads, desserts and cheese in house. Our wines are specifically chosen to compliment our food. Essentially French and Italian, the wines on our list are primarily from boutique, family owned and small production producers.",
+        "lat": 30.2474255,
+        "lon": -97.7532846
+    },
+    {
+        "name": "Armadillo Den",
+        "url": "https://www.armadillodenaustin.com/",
+        "blurb": "Our parking sucks but we're tryin' - take a rideshare and we'll take 10% off your table! Three Acres of South Austin Awesome. Kids welcome ‘til 6pm, M-F. Well-behaved Dogs Welcome Always. 5 of Austin’s Finest Food Trucks. 13 Foot LED TV Wall. Craft Beer & Cocktails on Tap. Live Music Every Night",
+        "lat": 30.1703303,
+        "lon": -97.8309795
+    },
+    {
+        "name": "Athens Cafe",
+        "url": "https://athens-cafe-atx.square.site",
+        "blurb": "Welcome to Athens Cafe! Explore our menu and enjoy fresh homemade Greek dishes like Moussaka, Souvlaki, Spanakopita, Greek Salad, and more!",
+        "lat": 30.4378322,
+        "lon": -97.7005553
+    },
+    {
+        "name": "Eldorado Cafe",
+        "url": "https://www.eldoradocafeatx.com/",
+        "blurb": "Eldorado Cafe serves hearty, Mexican-inspired comfort food that is meant to remind you of coming home.",
+        "lat": 30.3622236,
+        "lon": -97.747207
+    },
+    {
+        "name": "Matt's El Rancho",
+        "url": "http://www.mattselrancho.com/",
+        "blub": "Today the South Lamar restaurant seats more than 500. El Rancho still makes everything from scratch. Our in house tortilla factory grinds Non-GMO corn daily to make the freshest corn tortillas and chips you can find. Our Famous Margarita's are made with fresh-squeezed lime juice.",
+        "lat": 30.245118,
+        "lon": -97.7818559
+    },
+    {
+        "name": "Suerte",
+        "url": "https://www.suerteatx.com/",
+        "blurb": "Located in the heart of East Austin, Suerte is an award-winning restaurant driven by a passion for masa,  an ingredient at the heart of Mexican cooking. Chef Fermin and his team curate a seasonally driven menu with an emphasis on bringing together traditional Mexican cooking techniques with local Texas ingredients to create a unique and exciting dining experience",
+        "lat": 30.2622778,
+        "lon": -97.7258507
+    },
+    {
+        "name": "Fabrik Austin",
+        "url": "https://www.fabrikatx.com/",
+        "blurb": "With sustainability as a priority in our approach, we source produce and ingredients from local growers and provisioners wherever possible, and many of our garnishes and greens are sourced from our own hydroponic gardens and foraged finds. We aim to utilize as much of each ingredient as possible to reduce waste, and compost anything remaining.",
+        "lat": 30.279341,
+        "lon": -97.7255944
+    },
+    {
+        "name": "Eat — Black Star | Austin Brew Pub",
+        "url": "https://www.blackstar.coop/eat",
+        "blurb": "Black Star took root from an idea that looked beyond the path of conventional wisdom. A pub and brewery - owned by the community, for the community.",
+        "lat": 30.3382802,
+        "lon": -97.7216016
+    },
+    {
+        "name": "1618 Asian Fusion",
+        "url": "https://1618asianfusion.com/",
+        "blurb": "1618 Asian Fusion is a first-of-its-kind locally owned and operated family restaurant created with an exciting vision by Kevin Le and Lynn Tran. We delight in providing a culinary exploration of Asia's bright, bold, and diverse flavor landscape. 1618's menu spans the continent - offering diners a taste of Vietnamese, Thai, Chinese, Singaporean, and Southeast Asian food in our own fusion style.",
+        "lat": 30.2454026,
+        "lon": -97.733044
+    },
+    {
+        "name": "The Cheesecake Experience",
+        "url": "https://www.facebook.com/@TheCheesecakeExperience/",
+        "blurb": "Operating as a mobile food trailer, we provide bite sized artisan cheesecakes",
+        "lat": 30.1853565,
+        "lon": -97.7946158
+    },
+    {
+        "name": "DAI DUE",
+        "url": "https://www.daidue.com/",
+        "blurb": "Apparently it has great salad dressing. Dai Due was created in 2006 to reconsider what “our” food is and will be.  By using ingredients that are present in our region, we are able to serve foods that are fresher, buy food that is produced in a fair and equitable way, represent local culinary traditions, and support farmers and ranchers who are striving to improve the quality of our food.",
+        "lat": 30.2848504,
+        "lon": -97.7193305
     }
 ]
