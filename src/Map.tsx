@@ -6,11 +6,11 @@ import restaurants from './data/restaurants.json'
 
 export default function Map() {
     let markers = restaurants.map(function(restaurant) {
-        return <Marker position={[restaurant.Lat, restaurant.Lon]}>
+        return <Marker position={[restaurant.lat, restaurant.lon]}>
                 <Popup>
-                <b><a href={ restaurant.URL } target="_blank">{ restaurant.Name }</a></b>
+                <b><a href={ restaurant.url } target="_blank">{ restaurant.name }</a></b>
                 <div>
-                    {restaurant.Blurb}
+                    {restaurant.blurb}
                 </div>
                 </Popup>
         </Marker>;
