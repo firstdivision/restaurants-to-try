@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "Hyde Park Bar and Grill",
+        "URL": "https://hpbng.com/",
+        "Blurb": "Since 1982, Hyde Park Bar & Grill has offered delicious high-quality food at a moderate price. We use the freshest quality ingredients, cooked from scratch and sourced locally whenever possible, in an inclusive menu. Our goal is to be where you eat when you dine away from home.",
+        "Lat": 30.3041725,
+        "Lon": -97.7267211
+    },
+    {
+        "Name": "Bureau de Poste",
+        "URL": "https://bureaudeposteatx.com/",
+        "Blurb": "Bureau de Poste is a neighborhood French bistro offering Parisian classics with a modern twist.",
+        "Lat": 30.3068480,
+        "Lon": -97.7300679
+    }
+]
