@@ -5,6 +5,10 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import ProTip from './ProTip';
 
+import Map from "./Map";
+
+import "./styles.css";
+
 function Copyright() {
   return (
     <Typography
@@ -32,7 +36,9 @@ export default function App() {
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Restaurants to Try!!!
         </Typography>
-        <ProTip />
+        <div className="App">
+          <Map />
+        </div>
         <Copyright />
       </Box>
     </Container>
