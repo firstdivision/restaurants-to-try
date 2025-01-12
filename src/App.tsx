@@ -4,8 +4,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import ProTip from './ProTip';
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
+
+import Map from "./Map";
+
+import "./styles.css";
 
 function Copyright() {
   return (
@@ -27,9 +29,6 @@ function Copyright() {
 
 export default function App() {
 
-  const austinLat = 30.265175;
-  const austinLong = -97.743821;
-
   return (
 
     <Container maxWidth="sm">
@@ -37,20 +36,9 @@ export default function App() {
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Restaurants to Try!!!
         </Typography>
-
-          <MapContainer style={{ height: "450px", width: "100%" }} center={[austinLat, austinLong]} zoom={10} scrollWheelZoom={false}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.505, -0.09]}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </MapContainer>
-
-        <ProTip />
+        <div className="App">
+          <Map />
+        </div>
         <Copyright />
       </Box>
     </Container>
