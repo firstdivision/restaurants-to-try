@@ -9,10 +9,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-// import { Link } from '@mui/material';
+//import { Link } from 'react-router-dom';
+import { Link } from '@mui/material';
 
-const pages = ['Map', 'List'];
+class NavItem {
+    text:string;
+    route:string;
+
+    constructor(text:string, route:string) { 
+        this.text = text; 
+        this.route = route
+     }  
+}
+
+
+const pages: NavItem[] = [
+    new NavItem("Map", "/"),
+    new NavItem("List", "/list"),
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -58,10 +72,10 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem 
-                    key={page} 
+                    key={page.route} 
                 >
                   <Typography sx={{ textAlign: 'center' }}>
-                    <Link to="/list">{page}</Link>
+                    <Link key={page.route} href={page.route}>{page.text}</Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -70,10 +84,12 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                component={Link} to="/list"
+                key={page.route}
+                href={ page.route}   
+                variant="contained"
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page} 
+                {page.text} 
               </Button>
             ))}
           </Box>
