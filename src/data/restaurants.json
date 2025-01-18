@@ -3,32 +3,36 @@
         "name": "Hyde Park Bar and Grill",
         "url": "https://hpbng.com/",
         "blurb": "Since 1982, Hyde Park Bar & Grill has offered delicious high-quality food at a moderate price. We use the freshest quality ingredients, cooked from scratch and sourced locally whenever possible, in an inclusive menu. Our goal is to be where you eat when you dine away from home.",
-        "lat": 30.3041725,
-        "lon": -97.7267211,
+        "lat": 30.3042176,
+        "lon": -97.7292489,
+        "googleMapsLink": "https://www.google.com/maps/place/Hyde+Park+Bar+%26+Grill/@30.3042176,-97.7292489,17z/data=!3m1!4b1!4m6!3m5!1s0x8644ca76bf871bcd:0xe7e32980bc668deb!8m2!3d30.3042176!4d-97.726674!16s%2Fm%2F020yz_t?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Americana"
     },
     {
         "name": "Bureau de Poste",
         "url": "https://bureaudeposteatx.com/",
         "blurb": "Bureau de Poste is a neighborhood French bistro offering Parisian classics with a modern twist.",
-        "lat": 30.3068480,
-        "lon": -97.7300679,
+        "lat": 30.3068217,
+        "lon": -97.7326684,
+        "googleMapsLink": "https://www.google.com/maps/place/Bureau+de+Poste+%2F+at+Tiny+Grocer/@30.3068217,-97.7326684,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cb2292cf953b:0x49845175c3e97364!8m2!3d30.3068217!4d-97.7300935!16s%2Fg%2F11l31vx8_6?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "French"
     },
     {
         "name": "Peche",
         "url": "http://www.pecheaustin.com/",
         "blurb": "Meaning sin in French, Péché is distinctly Austin's first absinthe bar, a cocktail program headed by bar manager Derek Weiss, showcasing a selection of pre-Prohibition style cocktails and a curated wine list. Executive chef John Lichtenberger brings that same tailored focus to the food menu, providing rich French fare made with the freshest ingredients.",
-        "lat": 30.266966,
-        "lon": -97.745155,
+        "lat": 30.2668707,
+        "lon": -97.750084,
+        "googleMapsLink": "https://www.google.com/maps/place/P%C3%A9ch%C3%A9/@30.2668707,-97.750084,16z/data=!3m1!4b1!4m6!3m5!1s0x8644b508e3e50b81:0xdc31ceba925a687!8m2!3d30.2668708!4d-97.7452131!16s%2Fg%2F1vnnjswc?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "French"
     },
     {
         "name": "Fukumoto",
         "url": "https://www.fukumotoaustin.com/",
         "blurb": "Fukumoto is an izakaya, a Japanese restaurant specializing in yakitori (skewers grilled over Japanese charcoal), sushi/sashimi, and classic Japanese comfort food.",
-        "lat": 30.2646261, 
-        "lon": -97.7317272,
+        "lat": 30.2646193, 
+        "lon": -97.7342851,
+        "googleMapsLink": "https://www.google.com/maps/place/Fukumoto/@30.2646193,-97.7342851,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5aff1dac007:0xb53e31bb70bcd61c!8m2!3d30.2646193!4d-97.7317102!16s%2Fg%2F11b72q8fvj?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Japanese"
     },
     {
@@ -37,6 +41,7 @@
         "blurb": "Ghama Zone Korean Food",
         "lat": 30.509062,
         "lon": -97.6805534,
+        "googleMapsLink": "https://www.google.com/maps/place/Ghama+Zone+Korean+Food/@30.509062,-97.6805534,17z/data=!3m1!4b1!4m6!3m5!1s0x8644d17104e27d97:0xad76f0180bce24c!8m2!3d30.509062!4d-97.6779785!16s%2Fg%2F11lcq5h6cd?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Korean"
     },
     {
@@ -45,14 +50,16 @@
         "blurb": "The food we are serving is not exactly traditional Japanese restaurant food, but authentic home-style Japanese cooking – the food we eat every day, and has many influences from other culture and cuisines. It’s special because it has some of our family history, with our family recipes and reflecting our backgrounds from Japan, New Orleans, and Austin and also traveling throughout Asia. It’s probably more accurate to call our food “Asazu cuisine”! (our last name)",
         "lat": 30.314087,
         "lon": -97.7170429,
+        "googleMapsLink": "https://www.google.com/maps/place/Kom%C3%A9:+Sushi+Kitchen/@30.314087,-97.7170429,17z/data=!3m1!4b1!4m6!3m5!1s0x8644ca0de61cf80d:0x3f7b99bf0542144b!8m2!3d30.314087!4d-97.714468!16s%2Fg%2F11h0jpyzz?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Japanese"
     },
     {
         "name": "Veracruz All Natural",
         "url": "https://veracruzallnatural.com/",
         "blurb": "From an early age, Reyna and Maritza wanted to own their own restaurant. They grew up helping their mother in the family kitchen in Veracruz, Mexico. Starting at very young ages, Reyna and Maritza’s mother and grandmother taught them the ins and outs of the kitchen, and they have loved to cook ever since. They learned to be creative with their cooking while at the same time respecting the heritage of authentic ingredients and the culture they represent. They also learned the value of using both fresh and organic ingredients in their cooking.",
-        "lat": 30.4804443, 
-        "lon": -97.6847878,
+        "lat": 30.4804405, 
+        "lon": -97.7832933,
+        "googleMapsLink": "https://www.google.com/maps/place/Veracruz+All+Natural/@30.4804405,-97.7832933,12z/data=!4m10!1m2!2m1!1sVeracruz+All+Natural!3m6!1s0x8644ce1c7075da77:0xc6b8cfb347a934aa!8m2!3d30.4804405!4d-97.6847975!15sChRWZXJhY3J1eiBBbGwgTmF0dXJhbCIDiAEBWhYiFHZlcmFjcnV6IGFsbCBuYXR1cmFskgESbWV4aWNhbl9yZXN0YXVyYW504AEA!16s%2Fg%2F11clzhfwlq?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
@@ -61,14 +68,16 @@
         "blurb": "La Popular creates an unbeatable vibe for guests with its elevated, high-quality take on traditional dishes, inventive craft cocktails and an extensive selection of artisan spirits, 80+ tequilas and mezcals, chic modern interiors, covet-worthy playlists, and genuine welcoming services that embodies traditional Mexican hospitality.",
         "lat": 30.2552402,
         "lon": -97.8699449,
+        "googleMapsLink": "https://www.google.com/maps/place/La+Popular+Austin/@30.2552402,-97.8699449,17z/data=!3m1!4b1!4m6!3m5!1s0x865b4b5e1dfaedb7:0x3fbee4660c894394!8m2!3d30.2552402!4d-97.86737!16s%2Fg%2F11txtbbgrj?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
         "name": "Intero",
         "url": "https://www.interorestaurant.com/",
         "blurb": "Just as in Italy where the food is genuine and locally sourced, you'll find the same at Intero with truly farm-to-table Italian cuisine.",
-        "lat": 30.2537253,
-        "lon": -97.7144887,
+        "lat": 30.2638585,
+        "lon": -97.7389822,
+        "googleMapsLink": "https://www.google.com/maps/place/Intero+Restaurant/@30.2638585,-97.7389822,15z/data=!4m10!1m2!2m1!1sIntero!3m6!1s0x8644b43358ec17af:0x5413a0e75eed15ce!8m2!3d30.2537!4d-97.71443!15sCgZJbnRlcm9aCCIGaW50ZXJvkgESaXRhbGlhbl9yZXN0YXVyYW504AEA!16s%2Fg%2F11gdkrwxzp?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Italian"
     },
     {
@@ -77,6 +86,7 @@
         "blurb": "French Gastropub",
         "lat": 30.2985231,
         "lon": -97.7435397,
+        "googleMapsLink": "https://www.google.com/maps/place/Hopfields/@30.2985231,-97.7435397,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b580046a931f:0x5f615477b538ef5b!8m2!3d30.2985231!4d-97.7409648!16s%2Fg%2F1hhhg_2h0?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "French"
     },
     {
@@ -85,6 +95,7 @@
         "blurb": "We believe in the nobility of service and in the dignified pleasures of dining well. We believe that for our restaurant to live up to its name, it must be restorative. We source top-quality meats, seafood, vegetables, and cheeses. We hand-cut fish and steaks, freshly grind chuck for burgers, and make our soups, buttermilk ciabatta, mustard, and two-week pickle relish from scratch. And we obsess over the details of getting it right every time.",
         "lat": 30.3567168,
         "lon": -97.7361198,
+        "googleMapsLink": "https://www.google.com/maps/place/Bartlett's+Restaurant/@30.3567169,-97.7338238,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cbaff8eb529b:0xc1175a55bd622d9b!8m2!3d30.3567169!4d-97.7312489!16s%2Fg%2F1hc2c3_03?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Americana"
     },
     {
@@ -93,22 +104,25 @@
         "blurb": "Offering handcrafted fresh baked goods, sandwiches, and snacks made from locally sourced ingredients, sustainable coffee, craft cocktails, and a killer selection of beer and wine.",
         "lat": 30.2798806,
         "lon": -97.7241564,
+        "googleMapsLink": "https://www.google.com/maps/place/Sour+Duck+Market/@30.2798806,-97.7241564,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b594e1e61e01:0x70d7243021911e1c!8m2!3d30.2798806!4d-97.7215815!16s%2Fg%2F11dy_frjtn?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Americana"
     },
     {
         "name": "Bufalina",
         "url": "https://www.bufalinapizza.com/",
         "blurb": "We serve Neapolitan pizza. Pizzas are roughly 12 in diameter and are cooked in our Stefano Ferrara wood-burning oven, which runs north of 900 degrees, for roughly 90 seconds. Pizzas emerge properly charred and slightly wet in the middle, a Neapolitan hallmark.",
-        "lat": 30.3410838,
-        "lon": -97.8145783,
+        "lat": 30.2798547,
+        "lon": -97.803983,
+        "googleMapsLink": "https://www.google.com/maps/place/Bufalina+Due/@30.2798547,-97.803983,12z/data=!4m10!1m2!2m1!1sBufalina!3m6!1s0x8644ca545a9655d9:0xe18d5324dce4cff2!8m2!3d30.3410818!4d-97.7384007!15sCghCdWZhbGluYSIDiAEBWgoiCGJ1ZmFsaW5hkgEQcGl6emFfcmVzdGF1cmFudOABAA!16s%2Fg%2F11cjpdrh5l?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Pizza"
     },
     {
         "name": "Super Thai Cuisine",
         "url": "https://www.superthaicuisine.com/",
         "blurb": "Our locally owned and operated restaurant masters the flavors of contemporary cuisine to serve the best Thai food in Austin! We offer a variety of popular and authentic Thai dishes, with sauces and food prepared fresh, in-house. Our goal is to give you a first-class Asian experience by serving Thai food that is all made with high-quality, fresh meat and organic vegetables.",
-        "lat": 30.2492442,
-        "lon": -97.7733213,
+        "lat": 30.2492443,
+        "lon": -97.7710253,
+        "googleMapsLink": "https://www.google.com/maps/place/Super+Thai+Cuisine/@30.2492443,-97.7710253,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b52675d6dc6f:0xd4e8c59e3728f277!8m2!3d30.2492443!4d-97.7684504!16s%2Fg%2F11g0ssfs_0?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Thai"
     },
     {
@@ -116,7 +130,8 @@
         "url": "https://www.casadeluz.org/",
         "blurb": "Vegan I think?  No actual menu, you just have to show up and see what they're making I guess.",
         "lat": 30.2641631,
-        "lon": -97.7642875,
+        "lon": -97.7998214,
+        "googleMapsLink": "https://www.google.com/maps/place/Casa+de+Luz+Village/@30.2641631,-97.7998214,14z/data=!4m10!1m2!2m1!1sCasa+de+Luz!3m6!1s0x8644b517926ff9f1:0xdb6e2feafb270e2d!8m2!3d30.2641631!4d-97.7617126!15sCgtDYXNhIGRlIEx1eloNIgtjYXNhIGRlIGx1epIBEHZlZ2FuX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F1vc6dt21?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Unknown"
     },
     {
@@ -125,14 +140,16 @@
         "blurb": "Our kitchen is driven wholly by handmade and locally-sourced ingredients. Our chefs do all of our own butchering and use every part of the animal. We make stocks, charcuterie, fresh pasta, breads, desserts and cheese in house. Our wines are specifically chosen to compliment our food. Essentially French and Italian, the wines on our list are primarily from boutique, family owned and small production producers.",
         "lat": 30.2474255,
         "lon": -97.7532846,
+        "googleMapsLink": "https://www.google.com/maps/place/Vespaio+Restaurant/@30.2474255,-97.7532846,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5ffe5e91043:0xe2462ef60c341c12!8m2!3d30.2474255!4d-97.7507097!16s%2Fg%2F11j7d81wrk?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Italian"
     },
     {
         "name": "Armadillo Den",
         "url": "https://www.armadillodenaustin.com/",
         "blurb": "Our parking sucks but we're tryin' - take a rideshare and we'll take 10% off your table! Three Acres of South Austin Awesome. Kids welcome 'til 6pm, M-F. Well-behaved Dogs Welcome Always. 5 of Austin's Finest Food Trucks. 13 Foot LED TV Wall. Craft Beer & Cocktails on Tap. Live Music Every Night",
-        "lat": 30.1703303,
-        "lon": -97.8309795,
+        "lat": 30.1703304,
+        "lon": -97.8286835,
+        "googleMapsLink": "https://www.google.com/maps/place/Armadillo+Den/@30.1703304,-97.8286835,17z/data=!3m1!4b1!4m6!3m5!1s0x865b4dad33aec79f:0x3012274b77b25c80!8m2!3d30.1703304!4d-97.8261086!16s%2Fg%2F11jcnx11c_?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Various"
     },
     {
@@ -141,14 +158,16 @@
         "blurb": "Welcome to Athens Cafe! Explore our menu and enjoy fresh homemade Greek dishes like Moussaka, Souvlaki, Spanakopita, Greek Salad, and more!",
         "lat": 30.4378322,
         "lon": -97.7005553,
+        "googleMapsLink": "https://www.google.com/maps/place/Athens+Cafe/@30.4378322,-97.7005553,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cdf61261fed7:0xf9cc0dfb88d4a335!8m2!3d30.4378322!4d-97.6979804!16s%2Fg%2F11wnkn84nx?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Greek"
     },
     {
         "name": "Eldorado Cafe",
         "url": "https://www.eldoradocafeatx.com/",
         "blurb": "Eldorado Cafe serves hearty, Mexican-inspired comfort food that is meant to remind you of coming home.",
-        "lat": 30.3622236,
-        "lon": -97.747207,
+        "lat": 30.3622237,
+        "lon": -97.744911,
+        "googleMapsLink": "https://www.google.com/maps/place/Eldorado+Cafe/@30.3622237,-97.744911,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cb0a1d876e31:0x21b1d4e74098819!8m2!3d30.3622237!4d-97.7423361!16s%2Fg%2F11dxl87lnt?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
@@ -157,6 +176,7 @@
         "blurb": "Today the South Lamar restaurant seats more than 500. El Rancho still makes everything from scratch. Our in house tortilla factory grinds Non-GMO corn daily to make the freshest corn tortillas and chips you can find. Our Famous Margarita's are made with fresh-squeezed lime juice.",
         "lat": 30.245118,
         "lon": -97.7818559,
+        "googleMapsLink": "https://www.google.com/maps/place/Matt's+El+Rancho/@30.245118,-97.7818559,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b4d6a927911f:0xf10a9ee57e4c40ed!8m2!3d30.245118!4d-97.779281!16s%2Fm%2F020z3d_?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
@@ -165,6 +185,7 @@
         "blurb": "Located in the heart of East Austin, Suerte is an award-winning restaurant driven by a passion for masa,  an ingredient at the heart of Mexican cooking. Chef Fermin and his team curate a seasonally driven menu with an emphasis on bringing together traditional Mexican cooking techniques with local Texas ingredients to create a unique and exciting dining experience",
         "lat": 30.2622778,
         "lon": -97.7258507,
+        "googleMapsLink": "https://www.google.com/maps/place/Suerte/@30.2622778,-97.7258507,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5b6fb440001:0x48219815b3589371!8m2!3d30.2622778!4d-97.7232758!16s%2Fg%2F11hcy_q_wp?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
@@ -173,15 +194,8 @@
         "blurb": "With sustainability as a priority in our approach, we source produce and ingredients from local growers and provisioners wherever possible, and many of our garnishes and greens are sourced from our own hydroponic gardens and foraged finds. We aim to utilize as much of each ingredient as possible to reduce waste, and compost anything remaining.",
         "lat": 30.279341,
         "lon": -97.7255944,
+        "googleMapsLink": "https://www.google.com/maps/place/Fabrik+Austin/@30.279341,-97.7255944,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5ca7883ebbf:0x3e460be420b518bf!8m2!3d30.279341!4d-97.7230195!16s%2Fg%2F11ty4_nnrc?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Fine Dining"
-    },
-    {
-        "name": "Eat — Black Star | Austin Brew Pub",
-        "url": "https://www.blackstar.coop/eat",
-        "blurb": "Black Star took root from an idea that looked beyond the path of conventional wisdom. A pub and brewery - owned by the community, for the community.",
-        "lat": 30.3382802,
-        "lon": -97.7216016,
-        "cuisine": "Brewpub"
     },
     {
         "name": "1618 Asian Fusion",
@@ -189,6 +203,7 @@
         "blurb": "1618 Asian Fusion is a first-of-its-kind locally owned and operated family restaurant created with an exciting vision by Kevin Le and Lynn Tran. We delight in providing a culinary exploration of Asia's bright, bold, and diverse flavor landscape. 1618's menu spans the continent - offering diners a taste of Vietnamese, Thai, Chinese, Singaporean, and Southeast Asian food in our own fusion style.",
         "lat": 30.2454026,
         "lon": -97.733044,
+        "googleMapsLink": "https://www.google.com/maps/place/1618+Asian+Fusion/@30.2454026,-97.733044,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5b61bba974b:0x1bb54572f87457c5!8m2!3d30.2454026!4d-97.7304691!16s%2Fg%2F11h57n32jh?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Asian"
     },
     {
@@ -197,6 +212,7 @@
         "blurb": "Operating as a mobile food trailer, we provide bite sized artisan cheesecakes",
         "lat": 30.1853565,
         "lon": -97.7946158,
+        "googleMapsLink": "https://www.google.com/maps/place/The+Celia+Jacobs+Cheesecake+Experience/@30.1853565,-97.7946158,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5aa2b044051:0x536ec59e0dc74bcb!8m2!3d30.1853565!4d-97.7920409!16s%2Fg%2F11bttlflqx?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Dessert"
     },
     {
@@ -205,14 +221,16 @@
         "blurb": "Apparently it has great salad dressing. Dai Due was created in 2006 to reconsider what “our” food is and will be.  By using ingredients that are present in our region, we are able to serve foods that are fresher, buy food that is produced in a fair and equitable way, represent local culinary traditions, and support farmers and ranchers who are striving to improve the quality of our food.",
         "lat": 30.2848504,
         "lon": -97.7193305,
+        "googleMapsLink": "https://www.google.com/maps/place/Dai+Due/@30.2848504,-97.7193305,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5ec595c1fb3:0xd06278f47455e6a5!8m2!3d30.2848504!4d-97.7167556!16s%2Fg%2F11b5yxry3x?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Unknown"
     },
     {
         "name": "Las Amazonas Tacos",
         "url": "",
         "blurb": "...popup kitchen / food truck?",
-        "lat": 30.2287501,
-        "lon": -97.7613429,
+        "lat": 30.1996659,
+        "lon": -97.8009217,
+        "googleMapsLink": "https://www.google.com/maps/search/Las+Amazonas+Tacos/@30.1996659,-97.8009217,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
@@ -221,6 +239,7 @@
         "blurb": "Welcome to our cozy corner of Austin, where we proudly embody the essence of a true mom-and-pop establishment. Hot pot, a 2,000-year-old tradition from Asia, serves as a beautiful way to gather friends, family, and loved ones to celebrate a bountiful harvest over a roaring soup. We're dedicated to serving you with genuine care and fresh flavors every day. Owned and operated by Jin and her devoted sons, Nelson and Nick, we take pride in serving our community with dishes made from scratch using the freshest ingredients available.",
         "lat": 30.3372636,
         "lon": -97.7195015,
+        "googleMapsLink": "https://www.google.com/maps/place/Soupleaf+Hot+Pot/@30.3372636,-97.7195015,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cbfe197c5521:0x52ddbf82777beda9!8m2!3d30.3372636!4d-97.7169266!16s%2Fg%2F11s8dnwqwt?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Asian"
     },
     {
@@ -229,6 +248,7 @@
         "blurb": "Burgers and stuff",
         "lat": 30.1674478,
         "lon": -97.8304256,
+        "googleMapsLink": "https://www.google.com/maps/place/The+Perfect+Bite/@30.1674478,-97.8304256,17z/data=!3m1!4b1!4m6!3m5!1s0x865b4d0b43326b41:0x2b5eaeb39bf53b25!8m2!3d30.1674478!4d-97.8278507!16s%2Fg%2F11jrndc4bn?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Burgers"
     },
     {
@@ -237,14 +257,16 @@
         "blurb": "Loro is an Asian smokehouse and bar originally created by the award-winning chefs behind Uchi and Franklin Barbecue. Together, they merged their love of Asian cuisine and Texas barbecue to offer innovative dishes you won’t find anywhere else. So come on by, kick back, and stay awhile.",
         "lat": 30.2477396,
         "lon": -97.7739251,
+        "googleMapsLink": "https://www.google.com/maps/place/Loro+Asian+Smokehouse+%26+Bar/@30.2477396,-97.7739251,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b51ecc3c7c1f:0xbbe56b5c7436a784!8m2!3d30.2477396!4d-97.7713502!16s%2Fg%2F11gcqgwfn9?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Asian"
     },
     {
         "name": "Little Deli & Pizzeria",
         "url": "https://littledeliandpizza.com/",
         "blurb": "Located in the heart of Austin, the Little Deli has been a staple for over two decades; we are the original Deli and Pizzeria, and we believe that we're the best. Why? We use the best ingredients, proven methods, and put our heart and soul into every sandwich and slice! All you have to do is call us and we'll get right to work!",
-        "lat": 30.342527,
-        "lon": -97.7257922,
+        "lat": 30.3425785,
+        "lon": -97.8779035,
+        "googleMapsLink": "https://www.google.com/maps/place/Little+Deli+%26+Pizzeria/@30.3425785,-97.8779035,12z/data=!4m10!1m2!2m1!1sLittle+Deli+%26+Pizzeria!3m6!1s0x8644ca4c78b1d20b:0x59de07e2176b0ce1!8m2!3d30.3425785!4d-97.7254682!15sChZMaXR0bGUgRGVsaSAmIFBpenplcmlhWhgiFmxpdHRsZSBkZWxpICYgcGl6emVyaWGSARBwaXp6YV9yZXN0YXVyYW504AEA!16s%2Fg%2F1tdyg09b?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Italian"
     },
     {
@@ -253,6 +275,7 @@
         "blurb": "Burgers, beer",
         "lat": 30.2882745,
         "lon": -97.7059248,
+        "googleMapsLink": "https://www.google.com/maps/place/Redbud+Ice+House/@30.2882745,-97.7059248,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b50068a1df15:0xf546f96ad1bf10e8!8m2!3d30.2882745!4d-97.7033499!16s%2Fg%2F11vrfps04f?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Burgers"
     },
     {
@@ -261,22 +284,25 @@
         "blurb": "We operate in a HIDDEN ghost/prep kitchen, but this is a HIDDEN gem! Please call if you get lost we understand it can be confusing, But after you taste our delicious food you will no longer need a GPS to find us",
         "lat": 30.1747602,
         "lon": -97.7995164,
+        "googleMapsLink": "https://www.google.com/maps/place/Hasta+la+Luna+tacos/@30.1747602,-97.7995164,17z/data=!3m1!4b1!4m6!3m5!1s0x865b4dedcd26c47f:0x5fdda0a3b50947e6!8m2!3d30.1747602!4d-97.7969415!16s%2Fg%2F11jzh7wyym?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
     },
     {
         "name": "épicerie",
         "url": "https://www.epicerieaustin.com/",
         "blurb": "Epicerie offers a bright and cozy space tucked away in the Rosedale neighborhood - which can be compared to visiting your neighbor's place. Only difference is: we are a bistro with a splendid pastry case.",
-        "lat": 30.3245173,
-        "lon": -97.743741,
+        "lat": 30.3245239,
+        "lon": -97.7462489,
+        "googleMapsLink": "https://www.google.com/maps/place/%C3%A9picerie/@30.3245239,-97.7462489,17z/data=!3m1!4b1!4m6!3m5!1s0x8644caf5080457f9:0x6d42dceb45effcc2!8m2!3d30.3245239!4d-97.743674!16s%2Fg%2F1hhh2h9hq?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "French"
     },
     {
         "name": "Carmelas",
         "url": "https://www.carmelasdrippingsprings.com/",
         "blurb": "Carmela's is a family owned authentic Italian restaurant. Ours is a traditional age old cuisine passed down over generations.",
-        "lat": 30.2863776,
-        "lon": -98.0662721,
+        "lat": 30.2862972,
+        "lon": -98.1421544,
+        "googleMapsLink": "https://www.google.com/maps/place/Carmela's+Pizzeria+Cafe+%26+Deli/@30.2862972,-98.1421544,13z/data=!4m10!1m2!2m1!1sCarmelas!3m6!1s0x865b3f5dcbc97d89:0x4f58b34e6f96ef51!8m2!3d30.2862972!4d-98.0659367!15sCghDYXJtZWxhc1oKIghjYXJtZWxhc5IBEml0YWxpYW5fcmVzdGF1cmFudOABAA!16s%2Fg%2F1tdz9vc2?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Italian"
     },
     {
@@ -284,15 +310,17 @@
         "url": "https://www.swedishhillaustin.com/westsixth",
         "blurb": "Your destination for coffee, freshly baked breads and pastries, made-to-order sandwiches, salads, deli case specialties, and cakes. Take it to-go or grab a seat outdoors.",
         "lat": 30.2728166,
-        "lon": -97.7568268,
+        "lon": -97.7593979,
+        "googleMapsLink": "https://www.google.com/maps/place/Swedish+Hill/@30.272816,-97.7593979,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5485c75b4d9:0x25dbaee64e997188!8m2!3d30.272816!4d-97.756823!16s%2Fm%2F020zcqr?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Various"
     },
     {
         "name": "OKO Austin",
         "url": "https://okoaustin.com",
         "blurb": "OKO was born from the shared vision of FAM Hospitality and Trinity Concepts, blending Filipino and Southeast Asian culinary traditions with Austin's energy. Led by Chef Harold Villarosa and FAM co-founder Paul Qui, OKO redefines Austin's dining scene with a menu celebrating the Filipino diaspora and the rich, diverse flavors of Southeast Asia.",
-        "lat": 30.2648469,
-        "lon": -97.7313839,
+        "lat": 30.2648498,
+        "lon": -97.7338698,
+        "googleMapsLink": "https://www.google.com/maps/place/OKO+Austin/@30.2648498,-97.7338698,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5002f7e47c3:0x88daa0d7b5a59046!8m2!3d30.2648498!4d-97.7312949!16s%2Fg%2F11whpjjkmn?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Asian"
     }
 ]
