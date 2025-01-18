@@ -3,7 +3,8 @@ import React from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 import restaurants from './data/restaurants.json'
-import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Stack, Typography } from "@mui/material";
+import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 class ItemWithCount {
@@ -53,7 +54,15 @@ export default function Map() {
     let markers = selectedRestaurants.map(function(restaurant) {
         return <Marker key={restaurant.name} position={[restaurant.lat, restaurant.lon]}>
                 <Popup>
-                <b><a href={ restaurant.url } target="_blank">{ restaurant.name }</a></b>
+                    <div>
+                        <b><a href={ restaurant.url } target="_blank">{ restaurant.name }</a></b> 
+                        &nbsp; - &nbsp;
+                        <a target="_blank" href={ restaurant.googleMapsLink }>
+                            Google
+                            <OpenInNewRoundedIcon display={"inline"} sx={{ fontSize: 10 }} />   
+                        </a>
+                    </div>
+
                 <div>
                     {restaurant.blurb}
                 </div>

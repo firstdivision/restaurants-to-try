@@ -1,4 +1,5 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import ResponsiveAppBar from "./AppBar";
 import React from "react";
 
@@ -15,9 +16,18 @@ export default function ListView() {
             </Typography>
 
             <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
+                <a target="_blank" href={ restaurant.googleMapsLink }>
+                    <Stack alignItems="center" direction="row" gap={2}>
+                        <Typography variant="body1">Google</Typography>
+                        <OpenInNewRoundedIcon  fontSize="small" />
+                    </Stack> 
+                </a>
+            </Typography>
+
+            <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
                 Cuisine: {restaurant.cuisine}
             </Typography>
-            
+                                    
             <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
                 {restaurant.blurb}
             </Typography>
