@@ -322,5 +322,23 @@
         "lon": -97.7338698,
         "googleMapsLink": "https://www.google.com/maps/place/OKO+Austin/@30.2648498,-97.7338698,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5002f7e47c3:0x88daa0d7b5a59046!8m2!3d30.2648498!4d-97.7312949!16s%2Fg%2F11whpjjkmn?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Asian"
+    },
+    {
+        "name": "Buenos Aires Café Galleria",
+        "url": "https://www.buenosairescafegalleria.com/",
+        "blurb": "Our kitchen celebrates our Argentine legacy, it's cuisine, and culture.",
+        "lat": 30.3092411,
+        "lon": -97.9389851,
+        "googleMapsLink": "https://www.google.com/maps/place/Buenos+Aires+Cafe+Galleria/@30.3092411,-97.94156,17z/data=!3m1!4b1!4m6!3m5!1s0x865b37eab8054a11:0x9c9a09d040121e98!8m2!3d30.3092411!4d-97.9389851!16s%2Fg%2F1tgfdrxl?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Argentinian"
+    },
+    {
+        "name": "Buenos Aires Café",
+        "url": "https://www.buenosairescafe.com/",
+        "blurb": "At Buenos Aires Café, every meal is a journey to the heart of Argentina. We invite you to experience the warmth of our family recipes, lovingly crafted with the same care that filled our childhood kitchens. We're honored to share our love for Argentina with our Austin community—one plate, one story at a time.",
+        "lat": 30.2642319,
+        "lon": -97.7352759,
+        "googleMapsLink": "https://www.google.com/maps/place/Buenos+Aires+Caf%C3%A9/@30.2642319,-97.7352759,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5b01b006ebd:0x9edf14867d4317be!8m2!3d30.264232!4d-97.730405!16s%2Fg%2F1v26mhdf?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Argentinian"
     }
 ]
