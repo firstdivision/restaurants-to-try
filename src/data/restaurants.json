@@ -340,5 +340,14 @@
         "lon": -97.7352759,
         "googleMapsLink": "https://www.google.com/maps/place/Buenos+Aires+Caf%C3%A9/@30.2642319,-97.7352759,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5b01b006ebd:0x9edf14867d4317be!8m2!3d30.264232!4d-97.730405!16s%2Fg%2F1v26mhdf?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Argentinian"
+    },
+    {
+        "name": "Canje",
+        "url": "https://canjeatx.com",
+        "blurb": "Named after the Canje pheasant, national bird of Guyana, Canje pulls inspiration not just from mainland Guyana, but from Jamaica to Puerto Rico, and all the islands in between. Traditional meets modern in this new age Caribbean restaurant, the passion project of Guyanese native Chef Tavel Bristol-Joseph. Canje's menu explores the cooking techniques, ingredients, and many expressions of vibrant food across the entire region.",
+        "lat": 30.2616642,
+        "lon": -97.724002,
+        "googleMapsLink": "https://www.google.com/maps/place/Canje/@30.2616642,-97.724002,16z/data=!3m1!4b1!4m6!3m5!1s0x8644b5615feb3589:0x31b6279d6f9fcac0!8m2!3d30.2616642!4d-97.7214271!16s%2Fg%2F11nnzlykjf?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Carribean"
     }
 ]
