@@ -349,5 +349,14 @@
         "lon": -97.724002,
         "googleMapsLink": "https://www.google.com/maps/place/Canje/@30.2616642,-97.724002,16z/data=!3m1!4b1!4m6!3m5!1s0x8644b5615feb3589:0x31b6279d6f9fcac0!8m2!3d30.2616642!4d-97.7214271!16s%2Fg%2F11nnzlykjf?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Carribean"
+    },
+    {
+        "name": "LENOIR",
+        "url": "https://www.lenoirrestaurant.com/",
+        "blurb": "Lenoir is named for the grape with hardy rootstock growing all over the Texas Hill Country, an homage to the beauty of this part of the state. Since opening early in 2012, our focus has always been on cooking the best of what Central Texas has to offer with spice, heat and robust flavor.  At Lenoir, we celebrate seasonal Texas ingredients, we cook for the season (and the weather - hot!) and we serve it with fantastic beer and wine from great grower-producers all over the world. ",
+        "lat": 30.2469938,
+        "lon": -97.7558701,
+        "googleMapsLink": "https://www.google.com/maps/place/LENOIR/@30.2469938,-97.7584504,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b4e38ff71c45:0xac2ad83c038fc9de!8m2!3d30.2469938!4d-97.7558701!16s%2Fg%2F1hc2hddf5?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Various"
     }
 ]
