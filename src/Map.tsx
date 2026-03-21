@@ -3,7 +3,7 @@ import React from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 import restaurants from './data/restaurants.json'
-import { FormControl, InputLabel, MenuItem, Stack, Typography } from "@mui/material";
+import { Box, FormControl, InputLabel, MenuItem } from "@mui/material";
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
@@ -15,6 +15,25 @@ class ItemWithCount {
         this.name = name; 
         this.count = count
      }  
+}
+
+function FitMapToMarkers({ positions }: { positions: [number, number][] }) {
+    const map = useMap();
+
+    React.useEffect(() => {
+        if (positions.length === 0) {
+            return;
+        }
+
+        if (positions.length === 1) {
+            map.setView(positions[0], 13);
+            return;
+        }
+
+        map.fitBounds(positions, { padding: [40, 40] });
+    }, [map, positions]);
+
+    return null;
 }
 
 export default function Map() {
@@ -51,6 +70,8 @@ export default function Map() {
         selectedRestaurants = selectedRestaurants.filter((restaurant) => restaurant.cuisine === selectedCuisine);
     }
 
+    const markerPositions = selectedRestaurants.map((restaurant) => [restaurant.lat, restaurant.lon] as [number, number]);
+
     let markers = selectedRestaurants.map(function(restaurant) {
         return <Marker key={restaurant.name} position={[restaurant.lat, restaurant.lon]}>
                 <Popup>
@@ -75,8 +96,8 @@ export default function Map() {
     };
 
   return (
-    <div>
-        <div>
+    <Box sx={{ height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ mb: 2 }}>
         <FormControl fullWidth>
             <InputLabel id="select-cuisine-label">Cuisine</InputLabel>
             <Select
@@ -89,18 +110,18 @@ export default function Map() {
                 { cuisineMenuItems }
             </Select>
             </FormControl>
-        </div>
-        <div>
-            <MapContainer center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom={false}>
+        </Box>
+        <Box sx={{ flex: 1, minHeight: 0 }}>
+            <MapContainer style={{ height: '100%', width: '100%' }} center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom={false}>
+                <FitMapToMarkers positions={markerPositions} />
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {markers}
             </MapContainer>              
-        </div>
-     
-    </div>
+        </Box>
+    </Box>
 
   );
 }
