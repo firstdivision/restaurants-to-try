@@ -5,6 +5,7 @@ import Home from './Home';
 
 import "./styles.css";
 import ListView from './ListView';
+import JsonBuilder from './JsonBuilder';
 
 export default function App() {
 
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/list" element={<ListView />} />
+        <Route path="/builder" element={<JsonBuilder />} />
         {/* <Route path="/*" element={<Navigate to="/restaurants-to-try" />}  />  */}
       </Routes>
     </HashRouter>

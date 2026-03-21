@@ -26,6 +26,7 @@ class NavItem {
 const pages: NavItem[] = [
     new NavItem("Map", "#"),
     new NavItem("List", "#list"),
+  new NavItem("Builder", "#builder"),
 ];
 
 function ResponsiveAppBar() {
