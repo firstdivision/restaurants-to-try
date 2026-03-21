@@ -1,6 +1,17 @@
 import React from 'react';
-import { Alert, Box, Button, Container, Stack, TextField, Typography } from '@mui/material';
+import {
+  Alert,
+  Autocomplete,
+  Box,
+  Button,
+  Container,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
 import ResponsiveAppBar from './AppBar';
+import restaurants from './data/restaurants.json';
 
 type RestaurantDraft = {
   name: string;
@@ -10,6 +21,12 @@ type RestaurantDraft = {
   lon: string;
   googleMapsLink: string;
   cuisine: string;
+};
+
+type ParsedGoogleMapsLocation = {
+  name: string;
+  lat: string;
+  lon: string;
 };
 
 const initialDraft: RestaurantDraft = {
@@ -22,18 +39,86 @@ const initialDraft: RestaurantDraft = {
   cuisine: '',
 };
 
+function extractCoordinates(url: string) {
+  const preciseMatch = url.match(/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/);
+
+  if (preciseMatch) {
+    return {
+      lat: preciseMatch[1],
+      lon: preciseMatch[2],
+    };
+  }
+
+  const viewportMatch = url.match(/@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)(?:,|$)/);
+
+  if (viewportMatch) {
+    return {
+      lat: viewportMatch[1],
+      lon: viewportMatch[2],
+    };
+  }
+
+  const queryMatch = url.match(/[?&]q=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/);
+
+  if (queryMatch) {
+    return {
+      lat: queryMatch[1],
+      lon: queryMatch[2],
+    };
+  }
+
+  return null;
+}
+
+function parseGoogleMapsLink(url: string): ParsedGoogleMapsLocation | null {
+  try {
+    const parsedUrl = new URL(url);
+    const coordinates = extractCoordinates(url);
+
+    if (!coordinates) {
+      return null;
+    }
+
+    const placeMatch = parsedUrl.pathname.match(/\/place\/([^/]+)/);
+    const rawName = placeMatch ? decodeURIComponent(placeMatch[1].replace(/\+/g, ' ')).trim() : '';
+
+    return {
+      name: rawName,
+      lat: coordinates.lat,
+      lon: coordinates.lon,
+    };
+  } catch {
+    return null;
+  }
+}
+
 export default function JsonBuilder() {
   const [draft, setDraft] = React.useState<RestaurantDraft>(initialDraft);
   const [copied, setCopied] = React.useState(false);
+  const [googleMapsParseError, setGoogleMapsParseError] = React.useState('');
+  const cuisineOptions = React.useMemo(() => {
+    const uniqueCuisines = new Set(
+      restaurants
+        .map((restaurant) => restaurant.cuisine.trim())
+        .filter((cuisine) => cuisine !== ''),
+    );
+
+    return Array.from(uniqueCuisines).sort((a, b) => a.localeCompare(b));
+  }, []);
 
   const updateField = (field: keyof RestaurantDraft) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setDraft((current) => ({ ...current, [field]: event.target.value }));
     setCopied(false);
+    if (field === 'googleMapsLink') {
+      setGoogleMapsParseError('');
+    }
   };
 
-  const latValue = Number(draft.lat);
-  const lonValue = Number(draft.lon);
-  const hasValidCoordinates = Number.isFinite(latValue) && Number.isFinite(lonValue);
+  const hasLatitude = draft.lat.trim() !== '';
+  const hasLongitude = draft.lon.trim() !== '';
+  const latValue = hasLatitude ? Number(draft.lat) : Number.NaN;
+  const lonValue = hasLongitude ? Number(draft.lon) : Number.NaN;
+  const hasValidCoordinates = hasLatitude && hasLongitude && Number.isFinite(latValue) && Number.isFinite(lonValue);
   const hasRequiredText = draft.name.trim() !== '' && draft.blurb.trim() !== '' && draft.cuisine.trim() !== '';
 
   const generatedObject = hasValidCoordinates
@@ -43,12 +128,31 @@ export default function JsonBuilder() {
         blurb: draft.blurb,
         lat: latValue,
         lon: lonValue,
-        googleMapsLink: draft.googleMapsLink,
+        googleMapsLink: draft.googleMapsLink.trim(),
         cuisine: draft.cuisine,
       }
     : null;
 
   const generatedJson = generatedObject ? JSON.stringify(generatedObject, null, 4) : '';
+
+  const parsePastedGoogleMapsLink = () => {
+    const parsedLocation = parseGoogleMapsLink(draft.googleMapsLink.trim());
+
+    if (!parsedLocation) {
+      setGoogleMapsParseError('Could not extract a place name and coordinates from that Google Maps URL.');
+      return;
+    }
+
+    setDraft((current) => ({
+      ...current,
+      name: parsedLocation.name || current.name,
+      lat: parsedLocation.lat,
+      lon: parsedLocation.lon,
+      googleMapsLink: current.googleMapsLink.trim(),
+    }));
+    setCopied(false);
+    setGoogleMapsParseError('');
+  };
 
   const copyToClipboard = async () => {
     if (!generatedJson) {
@@ -61,6 +165,12 @@ export default function JsonBuilder() {
 
   const resetForm = () => {
     setDraft(initialDraft);
+    setCopied(false);
+    setGoogleMapsParseError('');
+  };
+
+  const updateCuisine = (nextCuisine: string) => {
+    setDraft((current) => ({ ...current, cuisine: nextCuisine }));
     setCopied(false);
   };
 
@@ -76,7 +186,52 @@ export default function JsonBuilder() {
           Fill out the fields below. Copy the generated JSON object and paste it into restaurants.json inside the array.
         </Typography>
 
+        <Alert severity="info" sx={{ mb: 3, maxWidth: 960 }}>
+          This page does not add anything to the data automatically. It only helps you gather information and generate JSON that you can
+          paste into restaurants.json.
+        </Alert>
+
         <Stack spacing={2} sx={{ maxWidth: 960 }}>
+          <Paper variant="outlined" sx={{ p: 2 }}>
+            <Stack spacing={2}>
+              <Typography variant="subtitle1">Start With Google Maps</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Paste a Google Maps place URL, parse it, and use that as the initial source of truth for name and coordinates.
+                After that, fill in the website, blurb, and cuisine manually.
+              </Typography>
+
+              <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', md: '1fr auto auto' }, alignItems: 'start' }}>
+                <TextField
+                  label="Google Maps Link"
+                  value={draft.googleMapsLink}
+                  onChange={updateField('googleMapsLink')}
+                  fullWidth
+                  helperText="Paste a Google Maps place URL here, then parse it to fill the initial data."
+                />
+                <Button variant="contained" onClick={parsePastedGoogleMapsLink} disabled={!draft.googleMapsLink.trim()} sx={{ minWidth: 180 }}>
+                  Parse Maps URL
+                </Button>
+                {draft.googleMapsLink.trim() ? (
+                  <Button
+                    variant="outlined"
+                    href={draft.googleMapsLink.trim()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ minWidth: 180 }}
+                  >
+                    Open Link
+                  </Button>
+                ) : (
+                  <Button variant="outlined" disabled sx={{ minWidth: 180 }}>
+                    Open Link
+                  </Button>
+                )}
+              </Box>
+
+              {googleMapsParseError && <Alert severity="warning">{googleMapsParseError}</Alert>}
+            </Stack>
+          </Paper>
+
           <TextField label="Name" value={draft.name} onChange={updateField('name')} fullWidth required />
           <TextField label="Website URL" value={draft.url} onChange={updateField('url')} fullWidth />
           <TextField
@@ -94,13 +249,14 @@ export default function JsonBuilder() {
             <TextField label="Longitude" value={draft.lon} onChange={updateField('lon')} fullWidth required />
           </Box>
 
-          <TextField
-            label="Google Maps Link"
-            value={draft.googleMapsLink}
-            onChange={updateField('googleMapsLink')}
-            fullWidth
+          <Autocomplete
+            freeSolo
+            options={cuisineOptions}
+            value={draft.cuisine}
+            onChange={(_, value) => updateCuisine(typeof value === 'string' ? value : '')}
+            onInputChange={(_, inputValue) => updateCuisine(inputValue)}
+            renderInput={(params) => <TextField {...params} label="Cuisine" fullWidth required helperText="Choose an existing cuisine or type a new one." />}
           />
-          <TextField label="Cuisine" value={draft.cuisine} onChange={updateField('cuisine')} fullWidth required />
 
           {!hasValidCoordinates && (draft.lat !== '' || draft.lon !== '') && (
             <Alert severity="warning">Latitude and longitude must be valid numbers.</Alert>
