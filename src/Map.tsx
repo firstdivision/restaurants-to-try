@@ -3,19 +3,10 @@ import React from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 import restaurants from './data/restaurants.json'
-import { Box, FormControl, InputLabel, MenuItem } from "@mui/material";
+import { Box, FormControl, InputLabel, MenuItem, TextField } from "@mui/material";
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-
-class ItemWithCount {
-    name:string;
-    count:number;
-
-    constructor(name:string, count:number) { 
-        this.name = name; 
-        this.count = count
-     }  
-}
+import { ALL_CUISINES, filterRestaurants, getCuisineCounts, getSortedRestaurants } from './data/restaurantUtils';
 
 function FitMapToMarkers({ positions }: { positions: [number, number][] }) {
     const map = useMap();
@@ -37,38 +28,20 @@ function FitMapToMarkers({ positions }: { positions: [number, number][] }) {
 }
 
 export default function Map() {
-    const [selectedCuisine, setCuisine] = React.useState('All');
+    const [selectedCuisine, setCuisine] = React.useState(ALL_CUISINES);
+    const [nameQuery, setNameQuery] = React.useState('');
 
-    //alphabetize the list of restaurants
-    let sortedRestaurants = restaurants.sort((a, b) => a.name > b.name ? 1 : -1)
-    //get a list of distinct cuisines
-    const cuisinesWithCount = [] as ItemWithCount[];
+    const sortedRestaurants = getSortedRestaurants(restaurants);
+    const cuisineCounts = getCuisineCounts(sortedRestaurants);
 
-    sortedRestaurants.map(restaurant => {
-        let found = cuisinesWithCount.find(e => e.name === restaurant.cuisine);
+    const cuisineMenuItems = [
+        <MenuItem value={ALL_CUISINES} key={ALL_CUISINES}>{ALL_CUISINES}</MenuItem>,
+        ...cuisineCounts.map(({ cuisine, count }) => (
+            <MenuItem value={cuisine} key={cuisine}>{cuisine} ({count})</MenuItem>
+        )),
+    ];
 
-        if (!found) {
-            cuisinesWithCount.push(new ItemWithCount(restaurant.cuisine, 1));
-        } else {
-            found.count++;
-        }
-    });
-
-    cuisinesWithCount.sort((a, b) => a.name > b.name ? 1 : -1)
-
-    let cuisineMenuItems = cuisinesWithCount
-        .map(function(cuisine) {
-        return <MenuItem value={cuisine.name} key={cuisine.name}>{cuisine.name} ({cuisine.count}) </MenuItem>
-    });
-
-    //add the "All" item at the front
-    cuisineMenuItems.unshift(<MenuItem value="All" key="All">All</MenuItem>);
-
-    let selectedRestaurants = sortedRestaurants
-    if (selectedCuisine !== "All")
-    {
-        selectedRestaurants = selectedRestaurants.filter((restaurant) => restaurant.cuisine === selectedCuisine);
-    }
+    const selectedRestaurants = filterRestaurants(sortedRestaurants, selectedCuisine, nameQuery);
 
     const markerPositions = selectedRestaurants.map((restaurant) => [restaurant.lat, restaurant.lon] as [number, number]);
 
@@ -95,21 +68,33 @@ export default function Map() {
         setCuisine(event.target.value as string);
     };
 
+    const handleNameQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNameQuery(event.target.value);
+    };
+
   return (
     <Box sx={{ height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ mb: 2 }}>
-        <FormControl fullWidth>
-            <InputLabel id="select-cuisine-label">Cuisine</InputLabel>
-            <Select
-                labelId="select-cuisine-label"
-                id="cuisine-select"
-                value={selectedCuisine}
-                label="Cuisine"
-                onChange={handleCuisineChange}
-            >
-                { cuisineMenuItems }
-            </Select>
+        <Box sx={{ mb: 2, display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' } }}>
+            <FormControl fullWidth>
+                <InputLabel id="select-cuisine-label">Cuisine</InputLabel>
+                <Select
+                    labelId="select-cuisine-label"
+                    id="cuisine-select"
+                    value={selectedCuisine}
+                    label="Cuisine"
+                    onChange={handleCuisineChange}
+                >
+                    { cuisineMenuItems }
+                </Select>
             </FormControl>
+
+            <TextField
+                fullWidth
+                label="Search by name"
+                value={nameQuery}
+                onChange={handleNameQueryChange}
+                placeholder="Type part of a restaurant name"
+            />
         </Box>
         <Box sx={{ flex: 1, minHeight: 0 }}>
             <MapContainer style={{ height: '100%', width: '100%' }} center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom={false}>
