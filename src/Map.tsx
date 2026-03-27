@@ -6,7 +6,6 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import restaurants from './data/restaurants.json'
 import { Box, Button, Chip, Paper, Stack, Typography } from '@mui/material';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
-import MyLocationRoundedIcon from '@mui/icons-material/MyLocationRounded';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { ALL_CUISINES, filterRestaurants, getCuisineCounts, getSortedRestaurants } from './data/restaurantUtils';
 import DiscoveryControls from './DiscoveryControls';
@@ -161,23 +160,6 @@ export default function Map() {
         >
             {selectedRestaurants.length > 0 ? (
                 <Box sx={{ height: '100%', minHeight: 420, position: 'relative', borderRadius: 6, overflow: 'hidden' }}>
-                    <Box sx={{ position: 'absolute', top: 16, left: 16, zIndex: 500, maxWidth: 320 }}>
-                        <Paper elevation={0} sx={{ p: 2, borderRadius: 5, backgroundColor: 'rgba(255,250,246,0.9)', backdropFilter: 'blur(14px)', border: '1px solid rgba(126, 85, 48, 0.12)' }}>
-                            <Stack spacing={1}>
-                                <Stack direction="row" spacing={1} alignItems="center">
-                                    <MyLocationRoundedIcon color="primary" fontSize="small" />
-                                    <Typography variant="subtitle1">
-                                        {selectedRestaurants.length} place{selectedRestaurants.length === 1 ? '' : 's'} in view
-                                    </Typography>
-                                </Stack>
-                                <Typography variant="body2" color="text.secondary">
-                                    {selectedRestaurants.slice(0, 3).map((restaurant) => restaurant.name).join(' • ')}
-                                    {selectedRestaurants.length > 3 ? ' • ...' : ''}
-                                </Typography>
-                            </Stack>
-                        </Paper>
-                    </Box>
-
                     <MapContainer style={{ height: '100%', width: '100%' }} center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom>
                         <FitMapToMarkers positions={markerPositions} />
                         <TileLayer
