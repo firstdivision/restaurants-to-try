@@ -1,4 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+html {
+  min-height: 100%;
+}
+
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
 .leaflet-container {
   height: 100%;
   width: 100%;
+  background: linear-gradient(180deg, rgba(239, 230, 219, 0.9), rgba(224, 239, 245, 0.85));
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 16px 32px rgba(32, 35, 38, 0.18) !important;
+}
+
+.leaflet-control-zoom a {
+  color: #26160e !important;
+  background: rgba(255, 250, 246, 0.95) !important;
+  border-bottom: 1px solid rgba(126, 85, 48, 0.12) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: rgba(255, 250, 246, 0.96);
+  color: #26160e;
+  box-shadow: 0 18px 40px rgba(47, 29, 15, 0.18);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.map-popup {
+  min-width: 220px;
+  padding: 14px;
+}
+
+.map-popup a {
+  text-decoration: none;
+}
+
+.restaurant-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.restaurant-marker {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 18px 18px 18px 4px;
+  transform: rotate(-45deg);
+  background: linear-gradient(145deg, #d89161, #a55a2a);
+  border: 2px solid rgba(255, 250, 246, 0.92);
+  box-shadow: 0 14px 28px rgba(70, 45, 24, 0.28);
+}
+
+.restaurant-marker::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 2px);
+  width: 12px;
+  height: 12px;
+  background: rgba(70, 45, 24, 0.18);
+  border-radius: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  filter: blur(3px);
+}
+
+.restaurant-marker__core {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: rgba(255, 250, 246, 0.95);
+  box-shadow: inset 0 0 0 2px rgba(124, 63, 22, 0.14);
 }

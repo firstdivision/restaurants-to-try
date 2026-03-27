@@ -1,11 +1,22 @@
-import { Box, Container, FormControl, InputLabel, MenuItem, Stack, TextField, Typography } from "@mui/material";
+import {
+    Box,
+    Button,
+    Card,
+    CardContent,
+    Chip,
+    Container,
+    Paper,
+    Stack,
+    Typography,
+} from '@mui/material';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import ResponsiveAppBar from "./AppBar";
 import React from "react";
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
 
 import restaurants from './data/restaurants.json'
 import { ALL_CUISINES, filterRestaurants, getCuisineCounts, getSortedRestaurants } from './data/restaurantUtils';
+import DiscoveryControls from './DiscoveryControls';
 
 export default function ListView() {
     const [selectedCuisine, setCuisine] = React.useState(ALL_CUISINES);
@@ -14,39 +25,7 @@ export default function ListView() {
     const sortedRestaurants = getSortedRestaurants(restaurants);
     const cuisineCounts = getCuisineCounts(sortedRestaurants);
 
-    const cuisineMenuItems = [
-        <MenuItem value={ALL_CUISINES} key={ALL_CUISINES}>{ALL_CUISINES}</MenuItem>,
-        ...cuisineCounts.map(({ cuisine, count }) => (
-            <MenuItem value={cuisine} key={cuisine}>{cuisine} ({count})</MenuItem>
-        )),
-    ];
-
     const selectedRestaurants = filterRestaurants(sortedRestaurants, selectedCuisine, nameQuery);
-
-    let restaurantList = selectedRestaurants.map(function(restaurant) {
-        return <div key={restaurant.name}>
-            <Typography variant="h6" component="h6" sx={{ mb: 2 }}>
-                <a href={ restaurant.url } target="_blank">{ restaurant.name }</a>
-            </Typography>
-
-            <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
-                <a target="_blank" href={ restaurant.googleMapsLink }>
-                    <Stack alignItems="center" direction="row" gap={2}>
-                        <Typography variant="body1">Google</Typography>
-                        <OpenInNewRoundedIcon  fontSize="small" />
-                    </Stack> 
-                </a>
-            </Typography>
-
-            <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
-                Cuisine: {restaurant.cuisine}
-            </Typography>
-                                    
-            <Typography variant="body1" gutterBottom sx={{ display: 'block' }}>
-                {restaurant.blurb}
-            </Typography>
-        </div>;
-        });
 
     const handleCuisineChange = (event: SelectChangeEvent) => {
         setCuisine(event.target.value as string);
@@ -57,39 +36,75 @@ export default function ListView() {
     };
 
     return (
-        <Container maxWidth={false}>
+        <Container maxWidth={false} disableGutters sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <ResponsiveAppBar />
-            <Box sx={{ my: 4 }}>
-            <Typography variant="h6" component="h6" sx={{ mb: 2 }}>
-                Restaurants to Try
-            </Typography>
-            <Box sx={{ mb: 2, display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' } }}>
-                <FormControl fullWidth>
-                    <InputLabel id="select-cuisine-label">Cuisine</InputLabel>
-                    <Select
-                        labelId="select-cuisine-label"
-                        id="cuisine-select"
-                        value={selectedCuisine}
-                        label="Cuisine"
-                        onChange={handleCuisineChange}
-                    >
-                        {cuisineMenuItems}
-                    </Select>
-                </FormControl>
-
-                <TextField
-                    fullWidth
-                    label="Search by name"
-                    value={nameQuery}
-                    onChange={handleNameQueryChange}
-                    placeholder="Type part of a restaurant name"
+            <Box sx={{ flex: 1, px: { xs: 2, md: 4 }, py: { xs: 2, md: 3 }, display: 'grid', gap: 2.5, alignContent: 'start' }}>
+                <DiscoveryControls
+                    selectedCuisine={selectedCuisine}
+                    nameQuery={nameQuery}
+                    cuisineCounts={cuisineCounts}
+                    resultCount={selectedRestaurants.length}
+                    totalCount={sortedRestaurants.length}
+                    onCuisineChange={handleCuisineChange}
+                    onNameQueryChange={handleNameQueryChange}
+                    headline="Scan the shortlist without losing the sense of place."
+                    supportingText="The list view is built for comparison: quick cuisine context, direct links, and just enough detail to decide where to go next."
                 />
-            </Box>
-            <div className="App">
-               {restaurantList.length > 0 ? restaurantList : (
-                    <Typography variant="body1">No restaurants matched your filters.</Typography>
-               )}
-            </div>
+
+                {selectedRestaurants.length > 0 ? (
+                    <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', xl: 'repeat(2, minmax(0, 1fr))' } }}>
+                        {selectedRestaurants.map((restaurant, index) => (
+                            <Card key={restaurant.name} sx={{ background: index % 2 === 0 ? 'linear-gradient(180deg, rgba(255,250,246,0.96), rgba(247,239,230,0.9))' : 'linear-gradient(180deg, rgba(255,250,246,0.96), rgba(236,245,248,0.9))' }}>
+                                <CardContent sx={{ p: { xs: 2.25, md: 2.75 } }}>
+                                    <Stack spacing={2}>
+                                        <Box>
+                                            <Typography variant="h5" component="h2" sx={{ mb: 0.75 }}>
+                                                {restaurant.name}
+                                            </Typography>
+                                            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                                                <Chip label={restaurant.cuisine} color="primary" size="small" />
+                                                <Chip label={`${restaurant.lat.toFixed(3)}, ${restaurant.lon.toFixed(3)}`} variant="outlined" size="small" />
+                                            </Stack>
+                                        </Box>
+
+                                        <Typography variant="body1" color="text.secondary">
+                                            {restaurant.blurb}
+                                        </Typography>
+
+                                        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.25}>
+                                            <Button
+                                                variant="contained"
+                                                href={restaurant.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Visit website
+                                            </Button>
+                                            <Button
+                                                variant="outlined"
+                                                href={restaurant.googleMapsLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                endIcon={<OpenInNewRoundedIcon fontSize="small" />}
+                                            >
+                                                Open in Google Maps
+                                            </Button>
+                                        </Stack>
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </Box>
+                ) : (
+                    <Paper elevation={0} sx={{ p: 4, borderRadius: 8, textAlign: 'center', border: '1px solid rgba(126, 85, 48, 0.14)', backgroundColor: 'rgba(255,250,246,0.68)' }}>
+                        <Typography variant="h4" sx={{ mb: 1.25 }}>
+                            No restaurants matched your filters.
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary">
+                            Try a broader search term or switch the cuisine filter back to All.
+                        </Typography>
+                    </Paper>
+                )}
             </Box>
         </Container>
     );

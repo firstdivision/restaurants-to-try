@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 
 import Home from './Home';
 
-import "./styles.css";
+import './styles.css';
 import ListView from './ListView';
 import JsonBuilder from './JsonBuilder';
 
