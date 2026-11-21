@@ -163,8 +163,8 @@ export default function Map() {
                     <MapContainer style={{ height: '100%', width: '100%' }} center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom>
                         <FitMapToMarkers positions={markerPositions} />
                         <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
                         {markers}
                     </MapContainer>
