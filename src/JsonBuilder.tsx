@@ -5,6 +5,10 @@ import {
   Box,
   Button,
   Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Paper,
   Stack,
   TextField,
@@ -14,6 +18,36 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import TravelExploreRoundedIcon from '@mui/icons-material/TravelExploreRounded';
 import ResponsiveAppBar from './AppBar';
 import restaurants from './data/restaurants.json';
+import { Restaurant } from './data/restaurantUtils';
+
+const localEditing = process.env.NODE_ENV === 'development';
+const restaurantApi = '/restaurants-to-try/api/restaurants';
+
+async function readApiResponse(response: Response) {
+  if (!response.headers.get('content-type')?.includes('application/json')) {
+    throw new Error('Local save API is unavailable. Restart npm start to enable it.');
+  }
+  const result: unknown = await response.json();
+  if (!result || typeof result !== 'object') {
+    throw new Error('Local API returned an invalid response.');
+  }
+  if (!response.ok) {
+    throw new Error('error' in result && typeof result.error === 'string'
+      ? result.error : `Restaurant request failed (${response.status}).`);
+  }
+  return result;
+}
+
+function isRestaurant(value: unknown): value is Restaurant {
+  return !!value && typeof value === 'object'
+    && 'name' in value && typeof value.name === 'string'
+    && 'url' in value && typeof value.url === 'string'
+    && 'blurb' in value && typeof value.blurb === 'string'
+    && 'googleMapsLink' in value && typeof value.googleMapsLink === 'string'
+    && 'cuisine' in value && typeof value.cuisine === 'string'
+    && 'lat' in value && typeof value.lat === 'number'
+    && 'lon' in value && typeof value.lon === 'number';
+}
 
 type RestaurantDraft = {
   name: string;
@@ -98,19 +132,45 @@ export default function JsonBuilder() {
   const [draft, setDraft] = React.useState<RestaurantDraft>(initialDraft);
   const [copied, setCopied] = React.useState(false);
   const [googleMapsParseError, setGoogleMapsParseError] = React.useState('');
+  const [localRestaurants, setLocalRestaurants] = React.useState<Restaurant[]>(restaurants);
+  const [apiReady, setApiReady] = React.useState(false);
+  const [pendingEntry, setPendingEntry] = React.useState<Restaurant | null>(null);
+  const [saving, setSaving] = React.useState(false);
+  const [saveError, setSaveError] = React.useState('');
+  const [saveSuccess, setSaveSuccess] = React.useState('');
+
+  React.useEffect(() => {
+    if (!localEditing) return;
+    const controller = new AbortController();
+    fetch(restaurantApi, { signal: controller.signal })
+      .then(readApiResponse)
+      .then((result) => {
+        if (!('restaurants' in result) || !Array.isArray(result.restaurants) || !result.restaurants.every(isRestaurant)) {
+          throw new Error('Local API returned an invalid restaurant dataset.');
+        }
+        setLocalRestaurants(result.restaurants);
+        setApiReady(true);
+      })
+      .catch((error: Error) => {
+        if (!controller.signal.aborted) setSaveError(error.message);
+      });
+    return () => controller.abort();
+  }, []);
+
   const cuisineOptions = React.useMemo(() => {
     const uniqueCuisines = new Set(
-      restaurants
+      localRestaurants
         .map((restaurant) => restaurant.cuisine.trim())
         .filter((cuisine) => cuisine !== ''),
     );
 
     return Array.from(uniqueCuisines).sort((a, b) => a.localeCompare(b));
-  }, []);
+  }, [localRestaurants]);
 
   const updateField = (field: keyof RestaurantDraft) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setDraft((current) => ({ ...current, [field]: event.target.value }));
     setCopied(false);
+    setSaveSuccess('');
     if (field === 'googleMapsLink') {
       setGoogleMapsParseError('');
     }
@@ -120,18 +180,19 @@ export default function JsonBuilder() {
   const hasLongitude = draft.lon.trim() !== '';
   const latValue = hasLatitude ? Number(draft.lat) : Number.NaN;
   const lonValue = hasLongitude ? Number(draft.lon) : Number.NaN;
-  const hasValidCoordinates = hasLatitude && hasLongitude && Number.isFinite(latValue) && Number.isFinite(lonValue);
+  const hasValidCoordinates = hasLatitude && hasLongitude && Number.isFinite(latValue) && Number.isFinite(lonValue)
+    && Math.abs(latValue) <= 90 && Math.abs(lonValue) <= 180;
   const hasRequiredText = draft.name.trim() !== '' && draft.blurb.trim() !== '' && draft.cuisine.trim() !== '';
 
   const generatedObject = hasValidCoordinates
     ? {
-        name: draft.name,
-        url: draft.url,
-        blurb: draft.blurb,
+        name: draft.name.trim(),
+        url: draft.url.trim(),
+        blurb: draft.blurb.trim(),
         lat: latValue,
         lon: lonValue,
         googleMapsLink: draft.googleMapsLink.trim(),
-        cuisine: draft.cuisine,
+        cuisine: draft.cuisine.trim(),
       }
     : null;
 
@@ -161,19 +222,50 @@ export default function JsonBuilder() {
       return;
     }
 
-    await navigator.clipboard.writeText(generatedJson);
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText(generatedJson);
+      setCopied(true);
+    } catch {
+      setSaveError('Could not copy JSON. Select and copy the preview manually.');
+    }
+  };
+
+  const saveRestaurant = async () => {
+    if (!pendingEntry || saving) return;
+    setSaving(true);
+    setSaveError('');
+    try {
+      const result = await readApiResponse(await fetch(restaurantApi, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pendingEntry),
+      }));
+      if (!('total' in result) || typeof result.total !== 'number' || !Number.isInteger(result.total) || result.total < 1) {
+        throw new Error('Local API returned an invalid save confirmation. Check restaurants.json before trying again.');
+      }
+      setLocalRestaurants((current) => [...current, pendingEntry]);
+      setSaveSuccess(`Saved "${pendingEntry.name}" to restaurants.json (${result.total} restaurants).`);
+      setPendingEntry(null);
+      setDraft(initialDraft);
+      setCopied(false);
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : 'Could not save the restaurant.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const resetForm = () => {
     setDraft(initialDraft);
     setCopied(false);
     setGoogleMapsParseError('');
+    setSaveSuccess('');
   };
 
   const updateCuisine = (nextCuisine: string) => {
     setDraft((current) => ({ ...current, cuisine: nextCuisine }));
     setCopied(false);
+    setSaveSuccess('');
   };
 
   return (
@@ -198,7 +290,7 @@ export default function JsonBuilder() {
                 Restaurant JSON Builder
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
-                Start from a Google Maps URL, fill the missing details, and generate a ready-to-paste object for the restaurant dataset.
+                Start from a Google Maps URL, fill the missing details, and review your restaurant entry before saving.
               </Typography>
             </Stack>
 
@@ -218,7 +310,9 @@ export default function JsonBuilder() {
                   <Typography variant="subtitle1">Output</Typography>
                 </Stack>
                 <Typography variant="body2" color="text.secondary">
-                  Copy the generated JSON and paste it into the restaurants array when you are ready.
+                  {localEditing
+                    ? 'Review the generated JSON, then confirm to append the entry to your local restaurants.json.'
+                    : 'Copy the generated JSON and paste it into the restaurants array when you are ready.'}
                 </Typography>
               </Paper>
             </Stack>
@@ -226,8 +320,9 @@ export default function JsonBuilder() {
         </Paper>
 
         <Alert severity="info" sx={{ maxWidth: 1080 }}>
-          This page does not add anything to the data automatically. It only helps you gather information and generate JSON that you can
-          paste into restaurants.json.
+          {localEditing
+            ? 'Local editor: nothing is written until you review the entry and click Confirm and save. Existing entries are preserved.'
+            : 'File saving is only available with npm start locally. You can still generate and copy JSON here.'}
         </Alert>
 
         <Stack spacing={2} sx={{ maxWidth: 1080 }}>
@@ -296,14 +391,16 @@ export default function JsonBuilder() {
                 options={cuisineOptions}
                 value={draft.cuisine}
                 onChange={(_, value) => updateCuisine(typeof value === 'string' ? value : '')}
-                onInputChange={(_, inputValue) => updateCuisine(inputValue)}
+                onInputChange={(_, inputValue, reason) => {
+                  if (reason === 'input' || reason === 'clear') updateCuisine(inputValue);
+                }}
                 renderInput={(params) => <TextField {...params} label="Cuisine" fullWidth required helperText="Choose an existing cuisine or type a new one." />}
               />
             </Stack>
           </Paper>
 
           {!hasValidCoordinates && (draft.lat !== '' || draft.lon !== '') && (
-            <Alert severity="warning">Latitude and longitude must be valid numbers.</Alert>
+            <Alert severity="warning">Latitude must be between -90 and 90; longitude must be between -180 and 180.</Alert>
           )}
 
           {generatedJson && (
@@ -320,6 +417,19 @@ export default function JsonBuilder() {
           )}
 
           <Stack direction="row" spacing={2}>
+            {localEditing && (
+              <Button
+                variant="contained"
+                disabled={!apiReady || !generatedObject || !hasRequiredText || saving}
+                onClick={() => {
+                  setSaveError('');
+                  setSaveSuccess('');
+                  setPendingEntry(generatedObject);
+                }}
+              >
+                Review and save
+              </Button>
+            )}
             <Button variant="contained" onClick={copyToClipboard} disabled={!generatedJson || !hasRequiredText}>
               Copy JSON
             </Button>
@@ -329,8 +439,33 @@ export default function JsonBuilder() {
           </Stack>
 
           {copied && <Alert severity="success">Copied. Paste into restaurants.json and add a comma if needed.</Alert>}
+          {saveError && <Alert severity="error">{saveError}</Alert>}
+          {saveSuccess && <Alert severity="success">{saveSuccess}</Alert>}
         </Stack>
       </Box>
+      <Dialog open={pendingEntry !== null} onClose={() => { if (!saving) setPendingEntry(null); }} fullWidth maxWidth="sm">
+        <DialogTitle>Review restaurant entry</DialogTitle>
+        <DialogContent>
+          <Stack spacing={2} sx={{ pt: 1 }}>
+            <Typography>This exact entry will be appended to your local restaurants.json. Nothing has been saved yet.</Typography>
+            <TextField
+              label="Entry to save"
+              value={pendingEntry ? JSON.stringify(pendingEntry, null, 4) : ''}
+              multiline
+              minRows={12}
+              fullWidth
+              InputProps={{ readOnly: true }}
+            />
+            {saveError && <Alert severity="error">{saveError}</Alert>}
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button disabled={saving} onClick={() => setPendingEntry(null)}>Back to editing</Button>
+          <Button variant="contained" disabled={saving} onClick={saveRestaurant}>
+            {saving ? 'Saving...' : 'Confirm and save'}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }

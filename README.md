@@ -1,40 +1,39 @@
-# Material UI - Create React App example in TypeScript
+# Restaurants to Try
 
-## How to use
+An Austin restaurant shortlist with map, list, and restaurant-entry builder views.
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
-
-```bash
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/material-ui-cra-ts
-cd material-ui-cra-ts
-```
-
-Install it and run:
+## Run the local editor
 
 ```bash
 npm install
 npm start
 ```
 
-or:
+Open <http://localhost:3000/restaurants-to-try#/builder>.
+If the dev server was already running when the local editor was added, restart it.
 
-<!-- #default-branch-switch -->
+1. Paste a Google Maps place URL and click **Parse Maps URL**, or enter the coordinates manually.
+2. Fill in the name, blurb, and cuisine. Website and Google Maps links are optional;
+   supplied links must be valid HTTP(S) URLs.
+3. Click **Review and save** to inspect the exact JSON entry.
+4. Click **Confirm and save** to append it to [src/data/restaurants.json](./src/data/restaurants.json).
+   **Back to editing** closes the preview without writing anything.
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/master/examples/material-ui-cra-ts)
+The editor preserves existing entries, rejects duplicate names (case-insensitive) or
+identical Google Maps links, and requires latitude in [-90, 90] and longitude in
+[-180, 180]. A successful save clears the form and displays confirmation. The
+development server recompiles the dataset so the map and list include the new entry.
+Changes are real local file edits and remain after restarting; they are not committed
+automatically. Review the file diff in Git as usual.
 
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/material-ui-cra-ts)
+The file API is mounted only by the development server and accepts only same-origin
+localhost requests. The development server binds to localhost. No separate backend,
+credentials, deployment, or manual JSON pasting is needed. Production builds retain
+the copy-only builder and contain no file-writing endpoint.
 
-## The idea behind the example
+## Validation
 
-This example demonstrates how you can use Material UI with [Create React App](https://github.com/facebookincubator/create-react-app) in [TypeScript](https://github.com/Microsoft/TypeScript).
-It includes `@mui/material` and its peer dependencies, including [Emotion](https://emotion.sh/docs/introduction), the default style engine in Material UI v6.
-If you prefer, you can [use styled-components instead](https://mui.com/material-ui/integrations/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation and continue by browsing the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+```bash
+npm run test:local-api
+npm run build
+```
