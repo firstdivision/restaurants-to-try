@@ -159,7 +159,7 @@ export default function Map() {
             }}
         >
             {selectedRestaurants.length > 0 ? (
-                <Box sx={{ height: '100%', minHeight: 420, position: 'relative', borderRadius: 6, overflow: 'hidden' }}>
+                <Box sx={{ height: '100%', minHeight: { xs: 420, md: 650 }, position: 'relative', borderRadius: 6, overflow: 'hidden' }}>
                     <MapContainer style={{ height: '100%', width: '100%' }} center={[30.265175, -97.743821]} zoom={10} scrollWheelZoom>
                         <FitMapToMarkers positions={markerPositions} />
                         <TileLayer
