@@ -394,5 +394,14 @@
         "cuisine": "Asian",
         "lat": 30.2687234,
         "lon": -97.7284
+    },
+    {
+        "name": "Quince Lakehouse",
+        "url": "https://www.quincesma.com/",
+        "blurb": "Quince - Voted #1 Rooftop Patio in the World with locations in San Miguel, Fort Worth, and Austin.",
+        "googleMapsLink": "https://www.google.com/maps/place/Quince+Lakehouse/@30.2952529,-97.7842024,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5bd9cff0c7d:0xffe88b00442137d2!8m2!3d30.2952529!4d-97.7842024!16s%2Fg%2F11vdtxsp56?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Americana",
+        "lat": 30.2952529,
+        "lon": -97.7842024
     }
 ]
