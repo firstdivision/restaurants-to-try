@@ -30,7 +30,7 @@
         "name": "Fukumoto",
         "url": "https://www.fukumotoaustin.com/",
         "blurb": "Fukumoto is an izakaya, a Japanese restaurant specializing in yakitori (skewers grilled over Japanese charcoal), sushi/sashimi, and classic Japanese comfort food.",
-        "lat": 30.2646193, 
+        "lat": 30.2646193,
         "lon": -97.7342851,
         "googleMapsLink": "https://www.google.com/maps/place/Fukumoto/@30.2646193,-97.7342851,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5aff1dac007:0xb53e31bb70bcd61c!8m2!3d30.2646193!4d-97.7317102!16s%2Fg%2F11b72q8fvj?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Japanese"
@@ -57,7 +57,7 @@
         "name": "Veracruz All Natural",
         "url": "https://veracruzallnatural.com/",
         "blurb": "From an early age, Reyna and Maritza wanted to own their own restaurant. They grew up helping their mother in the family kitchen in Veracruz, Mexico. Starting at very young ages, Reyna and Maritza’s mother and grandmother taught them the ins and outs of the kitchen, and they have loved to cook ever since. They learned to be creative with their cooking while at the same time respecting the heritage of authentic ingredients and the culture they represent. They also learned the value of using both fresh and organic ingredients in their cooking.",
-        "lat": 30.4804405, 
+        "lat": 30.4804405,
         "lon": -97.7832933,
         "googleMapsLink": "https://www.google.com/maps/place/Veracruz+All+Natural/@30.4804405,-97.7832933,12z/data=!4m10!1m2!2m1!1sVeracruz+All+Natural!3m6!1s0x8644ce1c7075da77:0xc6b8cfb347a934aa!8m2!3d30.4804405!4d-97.6847975!15sChRWZXJhY3J1eiBBbGwgTmF0dXJhbCIDiAEBWhYiFHZlcmFjcnV6IGFsbCBuYXR1cmFskgESbWV4aWNhbl9yZXN0YXVyYW504AEA!16s%2Fg%2F11clzhfwlq?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Mexican"
@@ -358,5 +358,41 @@
         "lon": -97.7558701,
         "googleMapsLink": "https://www.google.com/maps/place/LENOIR/@30.2469938,-97.7584504,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b4e38ff71c45:0xac2ad83c038fc9de!8m2!3d30.2469938!4d-97.7558701!16s%2Fg%2F1hc2hddf5?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D",
         "cuisine": "Various"
+    },
+    {
+        "name": "Baldinucci Pizza Romana",
+        "url": "https://www.baldinucci.pizza/",
+        "blurb": "Our family’s vision is to provide you with the world’s best dining in a quick, beautiful slice. We offer Roman style and New York pizza made with local, sustainable, premium quality ingredients and with vegan, vegetarian, and gluten free options. Choose from delivery, pickup, and dine in options within Austin.",
+        "googleMapsLink": "https://www.google.com/maps/place/Baldinucci+Pizza+Romana/@30.4010115,-97.7226029,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cdc4840fe577:0xc42f5db5ad2b1bd6!8m2!3d30.4010115!4d-97.7226029!16s%2Fg%2F11zcyxwbwv?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Pizza",
+        "lat": 30.4010115,
+        "lon": -97.7226029
+    },
+    {
+        "name": "Allday Pizza: Tarrytown",
+        "url": "https://allday.pizza/",
+        "blurb": "It's pizza.",
+        "googleMapsLink": "https://www.google.com/maps/place/Allday+Pizza:+Tarrytown/@30.313251,-97.7694791,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cb224ccd10c1:0x97c436cb22c3605a!8m2!3d30.313251!4d-97.7669042!16s%2Fg%2F11trmwvyxm?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Pizza",
+        "lat": 30.313251,
+        "lon": -97.7669042
+    },
+    {
+        "name": "Pedroso's Pizza- Slice Shop & Take Out",
+        "url": "https://pedrosos-pizza.square.site/",
+        "blurb": "It's pizza.  Their website sucks.",
+        "googleMapsLink": "https://www.google.com/maps/place/Pedroso's+Pizza-+Slice+Shop+%26+Take+Out/@30.3325806,-97.7338838,13.59z/data=!4m6!3m5!1s0x8644cbec2768b4ff:0xe970448740e4baa3!8m2!3d30.3445641!4d-97.7361791!16s%2Fg%2F11qq6rvymn?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Pizza",
+        "lat": 30.3445641,
+        "lon": -97.7361791
+    },
+    {
+        "name": "Siti - Southeast Asian",
+        "url": "https://www.sitiatx.com/",
+        "blurb": "Siti is more than a restaurant—it's a living story of heritage, hospitality, and identity.\n\nWe are inspired by the culinary matriarchs of Southeast Asia: the women who cooked with instinct, memory, and love. Their stories shape our menu, our ethos, and our voice. We bring the cuisines of Singapore, Malaysia, Indonesia, Thailand, and the Philippines into a modern context—respectfully reimagined, lovingly prepared, and soulfully shared. We are also Austin's destination for bold Southeast Asian flavors, group dining & weddings",
+        "googleMapsLink": "https://www.google.com/maps/place/Siti+-+Southeast+Asian/@30.2687234,-97.7309749,17z/data=!3m1!4b1!4m6!3m5!1s0x8644b5bb0670f6e9:0x9f629218d062547c!8m2!3d30.2687234!4d-97.7284!16s%2Fg%2F11xlk1fg71?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D",
+        "cuisine": "Asian",
+        "lat": 30.2687234,
+        "lon": -97.7284
     }
 ]

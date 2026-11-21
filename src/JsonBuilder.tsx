@@ -23,6 +23,13 @@ import { Restaurant } from './data/restaurantUtils';
 const localEditing = process.env.NODE_ENV === 'development';
 const restaurantApi = '/restaurants-to-try/api/restaurants';
 
+function editorErrorMessage(error: unknown) {
+  if (error instanceof TypeError) {
+    return 'We could not reach the local editor. Make sure npm start is running, then try again.';
+  }
+  return error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+}
+
 async function readApiResponse(response: Response) {
   if (!response.headers.get('content-type')?.includes('application/json')) {
     throw new Error('Local save API is unavailable. Restart npm start to enable it.');
@@ -64,6 +71,24 @@ type ParsedGoogleMapsLocation = {
   lat: string;
   lon: string;
 };
+
+type LookupDetails = {
+  url: string;
+  blurb: string;
+  cuisine: string;
+  cuisineMatched: boolean;
+  sources: string[];
+  warnings: string[];
+};
+
+function isLookupDetails(value: object): value is LookupDetails {
+  return 'url' in value && typeof value.url === 'string'
+    && 'blurb' in value && typeof value.blurb === 'string'
+    && 'cuisine' in value && typeof value.cuisine === 'string'
+    && 'cuisineMatched' in value && typeof value.cuisineMatched === 'boolean'
+    && 'sources' in value && Array.isArray(value.sources) && value.sources.every((source) => typeof source === 'string')
+    && 'warnings' in value && Array.isArray(value.warnings) && value.warnings.every((warning) => typeof warning === 'string');
+}
 
 const initialDraft: RestaurantDraft = {
   name: '',
@@ -138,6 +163,49 @@ export default function JsonBuilder() {
   const [saving, setSaving] = React.useState(false);
   const [saveError, setSaveError] = React.useState('');
   const [saveSuccess, setSaveSuccess] = React.useState('');
+  const [lookupDetails, setLookupDetails] = React.useState<LookupDetails | null>(null);
+  const [lookupError, setLookupError] = React.useState('');
+  const [lookingUp, setLookingUp] = React.useState(false);
+  const lookupController = React.useRef<AbortController | null>(null);
+
+  React.useEffect(() => () => lookupController.current?.abort(), []);
+
+  const clearLookup = () => {
+    lookupController.current?.abort();
+    lookupController.current = null;
+    setLookingUp(false);
+    setLookupDetails(null);
+    setLookupError('');
+  };
+
+  const lookUpDetails = async () => {
+    clearLookup();
+    const controller = new AbortController();
+    lookupController.current = controller;
+    setLookingUp(true);
+    try {
+      const location = parseGoogleMapsLink(draft.googleMapsLink.trim());
+      const lat = draft.lat.trim() ? Number(draft.lat) : location ? Number(location.lat) : null;
+      const lon = draft.lon.trim() ? Number(draft.lon) : location ? Number(location.lon) : null;
+      const result = await readApiResponse(await fetch(`${restaurantApi}/lookup`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          url: draft.url, googleMapsLink: draft.googleMapsLink,
+          name: draft.name.trim() || location?.name || '', lat, lon,
+        }),
+        signal: controller.signal,
+      }));
+      if (!isLookupDetails(result)) throw new Error('The lookup returned information we could not read. Please try again.');
+      if (!controller.signal.aborted) setLookupDetails(result);
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        setLookupError(editorErrorMessage(error));
+      }
+    } finally {
+      if (!controller.signal.aborted) setLookingUp(false);
+    }
+  };
 
   React.useEffect(() => {
     if (!localEditing) return;
@@ -152,7 +220,7 @@ export default function JsonBuilder() {
         setApiReady(true);
       })
       .catch((error: Error) => {
-        if (!controller.signal.aborted) setSaveError(error.message);
+        if (!controller.signal.aborted) setSaveError(editorErrorMessage(error));
       });
     return () => controller.abort();
   }, []);
@@ -167,10 +235,14 @@ export default function JsonBuilder() {
     return Array.from(uniqueCuisines).sort((a, b) => a.localeCompare(b));
   }, [localRestaurants]);
 
+  const existingCuisine = cuisineOptions.find((cuisine) => cuisine.toLowerCase() === draft.cuisine.trim().toLowerCase());
+  const isNewCuisine = draft.cuisine.trim() !== '' && !existingCuisine;
+
   const updateField = (field: keyof RestaurantDraft) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setDraft((current) => ({ ...current, [field]: event.target.value }));
     setCopied(false);
     setSaveSuccess('');
+    if (['url', 'googleMapsLink', 'name', 'lat', 'lon'].includes(field)) clearLookup();
     if (field === 'googleMapsLink') {
       setGoogleMapsParseError('');
     }
@@ -192,7 +264,7 @@ export default function JsonBuilder() {
         lat: latValue,
         lon: lonValue,
         googleMapsLink: draft.googleMapsLink.trim(),
-        cuisine: draft.cuisine.trim(),
+        cuisine: existingCuisine || draft.cuisine.trim(),
       }
     : null;
 
@@ -248,14 +320,16 @@ export default function JsonBuilder() {
       setPendingEntry(null);
       setDraft(initialDraft);
       setCopied(false);
+      clearLookup();
     } catch (error) {
-      setSaveError(error instanceof Error ? error.message : 'Could not save the restaurant.');
+      setSaveError(editorErrorMessage(error));
     } finally {
       setSaving(false);
     }
   };
 
   const resetForm = () => {
+    clearLookup();
     setDraft(initialDraft);
     setCopied(false);
     setGoogleMapsParseError('');
@@ -331,7 +405,7 @@ export default function JsonBuilder() {
               <Typography variant="subtitle1">Start With Google Maps</Typography>
               <Typography variant="body2" color="text.secondary">
                 Paste a Google Maps place URL, parse it, and use that as the initial source of truth for name and coordinates.
-                After that, fill in the website, blurb, and cuisine manually.
+                Then look up website metadata for suggestions, or fill in the remaining details manually.
               </Typography>
 
               <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', md: '1fr auto auto' }, alignItems: 'start' }}>
@@ -366,6 +440,64 @@ export default function JsonBuilder() {
             </Stack>
           </Paper>
 
+          {localEditing && (
+            <Paper variant="outlined" sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 6, backgroundColor: 'rgba(255,250,246,0.72)' }}>
+              <Stack spacing={2}>
+                <Typography variant="subtitle1">Look up restaurant details</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Uses OpenStreetMap and public website information, with no API key or paid service. If the website field is empty,
+                  looks for a nearby restaurant with the same name, then tries Google Maps.
+                  Sites that require JavaScript or block scraping may not work.
+                  Suggestions never overwrite your edits automatically.
+                </Typography>
+                <Button
+                  variant="outlined"
+                  onClick={lookUpDetails}
+                  disabled={!apiReady || lookingUp || saving || (!draft.url.trim() && !draft.googleMapsLink.trim())}
+                  sx={{ alignSelf: 'start' }}
+                >
+                  {lookingUp ? 'Looking up...' : 'Look up details'}
+                </Button>
+                {lookupError && <Alert severity="error">{lookupError}</Alert>}
+                {lookupDetails && (
+                  <Stack spacing={2}>
+                    <Typography variant="body2">Suggestions only: verify the source and apply the fields you want.</Typography>
+                    {(['url', 'blurb', 'cuisine'] as const).map((field) => lookupDetails[field] && (
+                      <Stack key={field} spacing={1}>
+                        <Typography variant="subtitle2">
+                          {field === 'url' ? 'Suggested website' : field === 'blurb' ? 'Suggested blurb' : 'Suggested cuisine'}
+                        </Typography>
+                        <Typography variant="body2" sx={{ overflowWrap: 'anywhere' }}>{lookupDetails[field]}</Typography>
+                        <Button
+                          variant="outlined"
+                          sx={{ alignSelf: 'start' }}
+                          onClick={() => {
+                            setDraft((current) => ({ ...current, [field]: lookupDetails[field] }));
+                            setCopied(false);
+                            setSaveSuccess('');
+                          }}
+                        >
+                          Use {field === 'url' ? 'website' : field}
+                        </Button>
+                      </Stack>
+                    ))}
+                    {lookupDetails.sources.map((source) => (
+                      <Typography key={source} variant="body2" sx={{ overflowWrap: 'anywhere' }}>
+                        Source: <a href={source} target="_blank" rel="noopener noreferrer">{source}</a>
+                      </Typography>
+                    ))}
+                    {lookupDetails.sources.some((source) => source.startsWith('https://www.openstreetmap.org/')) && (
+                      <Typography variant="caption">
+                        Map data: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors (ODbL)</a>.
+                      </Typography>
+                    )}
+                    {lookupDetails.warnings.map((warning, index) => <Alert key={index} severity="warning">{warning}</Alert>)}
+                  </Stack>
+                )}
+              </Stack>
+            </Paper>
+          )}
+
           <Paper variant="outlined" sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 6, backgroundColor: 'rgba(255,250,246,0.72)' }}>
             <Stack spacing={2}>
               <Typography variant="subtitle1">Fill in the details</Typography>
@@ -396,6 +528,9 @@ export default function JsonBuilder() {
                 }}
                 renderInput={(params) => <TextField {...params} label="Cuisine" fullWidth required helperText="Choose an existing cuisine or type a new one." />}
               />
+              {isNewCuisine && (
+                <Alert severity="warning">"{draft.cuisine.trim()}" is not an existing cuisine. Saving this entry will create a new cuisine.</Alert>
+              )}
             </Stack>
           </Paper>
 
@@ -448,6 +583,9 @@ export default function JsonBuilder() {
         <DialogContent>
           <Stack spacing={2} sx={{ pt: 1 }}>
             <Typography>This exact entry will be appended to your local restaurants.json. Nothing has been saved yet.</Typography>
+            {pendingEntry && !cuisineOptions.includes(pendingEntry.cuisine) && (
+              <Alert severity="warning">This entry will create a new cuisine: "{pendingEntry.cuisine}".</Alert>
+            )}
             <TextField
               label="Entry to save"
               value={pendingEntry ? JSON.stringify(pendingEntry, null, 4) : ''}

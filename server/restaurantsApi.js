@@ -1,6 +1,7 @@
 const { readFile, writeFile, rename, unlink } = require('node:fs/promises');
 const { randomUUID } = require('node:crypto');
 const path = require('node:path');
+const { lookupRestaurant } = require('./restaurantLookup');
 
 const textFields = ['name', 'url', 'blurb', 'googleMapsLink', 'cuisine'];
 
@@ -56,7 +57,7 @@ function readJson(req) {
   });
 }
 
-function createRestaurantMiddleware(dataPath = path.join(__dirname, '../src/data/restaurants.json')) {
+function createRestaurantMiddleware(dataPath = path.join(__dirname, '../src/data/restaurants.json'), lookup = lookupRestaurant) {
   let writes = Promise.resolve();
 
   async function loadRestaurants() {
@@ -104,18 +105,19 @@ function createRestaurantMiddleware(dataPath = path.join(__dirname, '../src/data
       send(403, { error: 'The restaurant editor only accepts same-origin localhost requests.' });
       return;
     }
-    if (req.url !== '/' && req.url !== '') {
+    const isLookup = req.url === '/lookup';
+    if (req.url !== '/' && req.url !== '' && !isLookup) {
       send(404, { error: 'Unknown restaurant API route.' });
       return;
     }
     try {
-      if (req.method === 'GET') {
+      if (req.method === 'GET' && !isLookup) {
         send(200, { restaurants: await loadRestaurants() });
         return;
       }
       if (req.method !== 'POST') {
-        res.setHeader('Allow', 'GET, POST');
-        send(405, { error: 'Use GET to read or POST to add a restaurant.' });
+        res.setHeader('Allow', isLookup ? 'POST' : 'GET, POST');
+        send(405, { error: isLookup ? 'Use POST to look up restaurant details.' : 'Use GET to read or POST to add a restaurant.' });
         return;
       }
       if (req.headers['content-type']?.split(';')[0].trim() !== 'application/json') {
@@ -123,6 +125,11 @@ function createRestaurantMiddleware(dataPath = path.join(__dirname, '../src/data
         return;
       }
       const value = await readJson(req);
+      if (isLookup) {
+        const data = await loadRestaurants();
+        send(200, await lookup(value, [...new Set(data.map((entry) => entry.cuisine))]));
+        return;
+      }
       const validationError = validateRestaurant(value);
       if (validationError) {
         send(400, { error: validationError });

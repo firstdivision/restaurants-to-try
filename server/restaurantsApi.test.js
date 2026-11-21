@@ -16,11 +16,11 @@ const entry = {
   cuisine: 'Test cuisine',
 };
 
-async function fixture(t, contents = '[]\n') {
+async function fixture(t, contents = '[]\n', lookup) {
   const directory = await mkdtemp(path.join(os.tmpdir(), 'restaurant-api-test-'));
   const dataPath = path.join(directory, 'restaurants.json');
   await writeFile(dataPath, contents);
-  const server = http.createServer(createRestaurantMiddleware(dataPath));
+  const server = http.createServer(createRestaurantMiddleware(dataPath, lookup));
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   t.after(async () => {
     await new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
@@ -118,4 +118,22 @@ test('the real dataset can be loaded by the local editor', async (t) => {
   const contents = await readFile(path.join(__dirname, '../src/data/restaurants.json'), 'utf8');
   const f = await fixture(t, contents);
   assert.equal((await fetch(f.url)).status, 200);
+});
+
+test('lookup endpoint uses existing cuisines without writing data and enforces local request checks', async (t) => {
+  const f = await fixture(t, JSON.stringify([entry]), async (input, cuisines) => {
+    assert.equal(input.url, 'https://example.com');
+    assert.deepEqual(cuisines, ['Test cuisine']);
+    return { url: input.url, blurb: 'Suggested description', cuisine: cuisines[0], cuisineMatched: true, sources: [], warnings: [] };
+  });
+  const before = await readFile(f.dataPath, 'utf8');
+  const response = await fetch(`${f.url}lookup`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url: 'https://example.com', googleMapsLink: '' }),
+  });
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).blurb, 'Suggested description');
+  assert.equal(await readFile(f.dataPath, 'utf8'), before);
+  assert.equal((await fetch(`${f.url}lookup`)).status, 405);
+  assert.equal(await requestStatus(`${f.url}lookup`, { Origin: 'https://example.com' }), 403);
 });
